@@ -1541,7 +1541,6 @@ float transparency	= math.min(80, 100 - maHeight)
 
 bool maRising 		= ta.rising(ma14, 1)
 color lineCross		= maRising ? color.new(colorNeonLong,		transparencia-50) : color.new(colorNeonShort, transparencia-50)
-plot(maMed, title	= "Operativa",		color = lineCross,		linewidth = 4,		editable = false)
 
 bool signal			= maMin > maMed
 color colorCrOver	= signal ? colorNeonLong : colorNeonShort
@@ -1567,6 +1566,8 @@ plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 90),		linewidth =
 plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 95),		linewidth = 32,		editable = false)
 plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 98),		linewidth = 45,		editable = false)
 maPlotMed = plot(cross820 ? maMed : na,		color = color.new(colorCrOver, 45),		linewidth = 2,		editable = false)
+
+plot(cross820 ? maMed : na, 				color = lineCross,						linewidth = 4,		editable = false)
 
 //  ═══  Ma 55  ═══
 plot(cross55200 ? maMax : na,				color = color.new(colorCrOver, 92),		linewidth = 8,		editable = false)
