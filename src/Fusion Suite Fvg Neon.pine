@@ -8,10 +8,11 @@
 // ╚═══════════════════════════════════════╝
 // ║  Fvg Position Bar                     ║
 // ╚═══════════════════════════════════════╝
-
+// ║  CrossOver Neon                       ║
+// ╚═══════════════════════════════════════╝
 
 //@version=5
-indicator("Sessions & KillZones Forex Market [@Ultr]", "Sessions & KillZones FM [@Ultr]", overlay = true, max_bars_back = 5000, max_boxes_count = 500,max_labels_count = 500,max_lines_count = 500)
+indicator("Fusion Suite & KillZones Fvg Neon [@Ultr]", "Fusion SFKN [@Ultr]", overlay = true, max_bars_back = 5000, max_boxes_count = 500,max_labels_count = 500,max_lines_count = 500)
 
 //  ═════════════════
 //  ══  FM  ══
@@ -1477,3 +1478,145 @@ if fvgDown
       box.new(bar_index[2],  low[2], bar_index, high
       , border_color	= colorShort
       , bgcolor			= colorShort))
+
+
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////////////////
+
+
+var grpShadow = " ═══ Shadow ═══ "
+color colorCrossLong  = input.color(colorTvLightGreen50, title = "Long", group = grpShadow, inline = "Shad")
+color colorCrossShort = input.color(colorAmeritradeGrayNickel, title = "Short", group = grpShadow, inline = "Shad")
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Inputs  ═══
+
+var grpLong  = " ═══ EMAS ═══ "
+eMa55     = input.bool(defval = true, title = "", group = grpLong, inline = 'ema55')
+eMa200    = input.bool(defval = true, title = "", group = grpLong, inline = 'ema200')
+
+length8    = input(8,    title = "Extensión",  group = grpLong, inline = 'ema8')
+length20   = input(20,   title = "Extensión",  group = grpLong, inline = 'ema20')
+length55   = input(55,   title = "Extensión",  group = grpLong, inline = 'ema55')
+length200  = input(200,  title = "Extensión",  group = grpLong, inline = 'ema200')
+
+lengthFast = input(8,    title = "Min MA",      group = grpLong)
+lengthMed  = input(20,   title = "Med MA",      group = grpLong)
+lengthSlow = input(55,   title = "Max MA",      group = grpLong)
+
+int length          = input(14)
+int transparencia   = input(100)
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Options  ═══
+
+string optionMa	= input.string("SMA", "Tipo de MM", options = ["EMA", "SMA", "RMA", "WMA", "VWMA"])
+
+//  ══════════════
+//  ═══  Neon  ═══
+//  ═══  Types  ═══
+
+type OHL
+    float O = open
+    float H = high
+    float L = low
+    float C = close
+    float V = volume
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Functions  ═══
+
+ma(source, length, type) =>
+    type == "SMA" ? ta.sma(source, length) :    // Media Movil Simple
+     type == "EMA" ? ta.ema(source, length) :   // Media Movil Exponencial
+     type == "RMA" ? ta.rma(source, length) :   // Media Movil
+     type == "WMA" ? ta.wma(source, length) :   // Media Movil Ponderada
+     type == "VWMA" ? ta.vwma(source, length) : // Media Movil Ponderada por volumen
+     na
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Instances  ═══
+ohl = OHL.new()
+
+ma8   = ma(ohl.C, length8,    optionMa)
+ma14  = ma(ohl.C, length,     optionMa)
+ma20  = ma(ohl.C, length20,   optionMa)
+ma55  = ma(ohl.C, length55,   optionMa)
+ma200 = ma(ohl.C, length200,  optionMa)
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Math  ═══
+
+float maHeight = ta.percentrank(ma14, 100)
+float transparency = math.min(80, 100 - maHeight)
+
+float maFast       = ma(ohl.C, lengthFast, optionMa)
+float maMed        = ma(ohl.C, lengthMed,  optionMa)
+float maSlow       = ma(ohl.C, lengthSlow, optionMa)
+
+bool signal         = maFast > maMed
+color colorCrOver   = signal ? colorCrossLong : colorCrossShort
+
+//  ═══  CrossOver  ═══
+bool crossOver      = ta.crossover(maFast, maSlow)
+bool crossOver20    = ta.crossover(maFast, maSlow)
+bool crossUnder     = ta.crossunder(maFast, maSlow)
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Display EMAS  ═══
+
+//  ═══  Ma 8  ═══
+plot(ma8, color = color.new(colorCrOver,85), linewidth = 8,  editable = false)
+plot(ma8, color = color.new(colorCrOver,90), linewidth = 16, editable = false)
+plot(ma8, color = color.new(colorCrOver,95), linewidth = 32, editable = false)
+// plot(ma8, color = color.new(colorCrOver,98), linewidth = 40, editable = false)
+
+//  ═══  Ma 20  ═══
+plot(ma20, color = color.new(colorCrOver,80), linewidth = 10, editable = false)
+plot(ma20, color = color.new(colorCrOver,90), linewidth = 20, editable = false)
+plot(ma20, color = color.new(colorCrOver,95), linewidth = 32, editable = false)
+plot(ma20, color = color.new(colorCrOver,98), linewidth = 45, editable = false)
+
+//  ═══  Ma 55  ═══
+plot(eMa55 ? ma55 : na, color = color.new(colorCrOver,92), linewidth = 8,  editable = false)
+plot(eMa55 ? ma55 : na, color = color.new(colorCrOver,95), linewidth = 16, editable = false)
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Shadow  ═══
+maPlot8   = plot(ma8,  color = color.new(colorCrOver,45), linewidth = 2, editable = false)
+maPlot20  = plot(ma20, color = color.new(colorCrOver,45), linewidth = 2, editable = false)
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Plots  ═══
+maPlot55  = plot(eMa55 ? ma55 : na,   color = color.new(colorCrOver, 89),  linewidth = 2, editable = false)
+maPlot200 = plot(eMa200 ? ma200 : na, color = color.new(colorVisaBrandPrimary, 87),  linewidth = 3, editable = false, title = "Ma 200", style = plot.style_area)
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Fills  ═══
+fill(maPlot8, maPlot20, color = color.new(colorCrOver,80), title = "CrossOver")
+fill(maPlot20, maPlot55, color = color.new(colorCrOver,95), title = "CrossOver")
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Line Cross  ═══
+
+bool maRising  = ta.rising(ma14, 1)
+color lineCross = maRising ? color.new(colorCrossLong, transparencia-50) : color.new(colorCrossShort, transparencia-50)
+plot(ma20, title = "Operativa", color = lineCross, linewidth = 5, editable = false)
+
+//  ═══════════════
+//  ═══  Cross  ═══
+//  ═══  Shape  ═══
+
+bgcolor(crossOver ? color.new(colorCrossLong, 88) : crossUnder ? color.new(colorCrossShort, 88) : na, show_last = 150, title = "Reseñas")
+
