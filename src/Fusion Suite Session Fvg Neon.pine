@@ -1528,8 +1528,6 @@ ma(source, length, type) =>
 
 //  ══════════════
 //  ═══  Neon  ═══
-//  ═══  Instances  ═══
-
 //  ═══  Math  ═══
 
 float maMin			= ma(ohl.C,		lengthMin,		optionMa)
@@ -1543,7 +1541,7 @@ float transparency	= math.min(80, 100 - maHeight)
 
 bool maRising 		= ta.rising(ma14, 1)
 color lineCross		= maRising ? color.new(colorNeonLong,		transparencia-50) : color.new(colorNeonShort, transparencia-50)
-plot(maMed, title	= "Operativa",		color = lineCross,		linewidth = 5,		editable = false)
+plot(maMed, title	= "Operativa",		color = lineCross,		linewidth = 4,		editable = false)
 
 bool signal			= maMin > maMed
 color colorCrOver	= signal ? colorNeonLong : colorNeonShort
@@ -1561,11 +1559,11 @@ bool crossUnder		= ta.crossunder(maMin, maMax)
 plot(cross820 ? maMin : na,					color = color.new(colorCrOver, 85),		linewidth = 8,		editable = false)
 plot(cross820 ? maMin : na,					color = color.new(colorCrOver, 90),		linewidth = 16,		editable = false)
 plot(cross820 ? maMin : na,					color = color.new(colorCrOver, 95),		linewidth = 32,		editable = false)
-maPlotMin = plot(cross820 ? maMin : na,		color = color.new(colorCrOver, 45),		linewidth = 2,		editable = false)
+maPlotMin = plot(cross820 ? maMin : na,		color = color.new(colorCrOver, 65),		linewidth = 2,		editable = false)
 
 //  ═══  Ma 20  ═══
-plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 80),		linewidth = 10,		editable = false)
-plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 90),		linewidth = 20,		editable = false)
+plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 85),		linewidth = 10,		editable = false)
+plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 90),		linewidth = 16,		editable = false)
 plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 95),		linewidth = 32,		editable = false)
 plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 98),		linewidth = 45,		editable = false)
 maPlotMed = plot(cross820 ? maMed : na,		color = color.new(colorCrOver, 45),		linewidth = 2,		editable = false)
@@ -1576,7 +1574,7 @@ plot(cross55200 ? maMax : na,				color = color.new(colorCrOver, 95),		linewidth 
 maPlotMax  = plot(cross55200 ? maMax : na,	color = color.new(colorCrOver, 89),		linewidth = 2,		editable = false)
 
 //  ═══  Ma 200  ═══
-maPlot200 = plot(cross55200 ? ma200 : na,	color = color.new(colorVisaBrandPrimary, 87),	linewidth = 3,		editable = false,	title = "Ma 200",	style = plot.style_area)
+maPlot200 = plot(cross55200 ? ma200 : na,	color = color.new(colorVisaBrandPrimary, 87),	linewidth = 3,	editable = false,	title = "Ma 200",	style = plot.style_area)
 
 //  ══════════════
 //  ═══  Neon  ═══
