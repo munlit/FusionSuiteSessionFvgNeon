@@ -1484,38 +1484,45 @@ if fvgDown
 //////////////////////////////////////////////////////////////////////////////
 //////////////////////////////////////////////////////////////////////////////
 
+var grpShadow = " ═══ CrossOver Neon ═══ "
+color colorNeonLong  = input.color(colorTvLightGreen50,				title = "Buy",		group = grpShadow,		inline = "Shad")
+color colorNeonShort = input.color(colorAmeritradeGrayNickel,		title = "Sell",		group = grpShadow,		inline = "Shad")
 
-var grpShadow = " ═══ Shadow ═══ "
-color colorCrossLong  = input.color(colorTvLightGreen50, title = "Long", group = grpShadow, inline = "Shad")
-color colorCrossShort = input.color(colorAmeritradeGrayNickel, title = "Short", group = grpShadow, inline = "Shad")
+//  ════════════
+//  ══  Neon  ══
+//  ══  Inputs  ══
 
-//  ═══════════════
-//  ═══  Cross  ═══
-//  ═══  Inputs  ═══
+var grpLong  = " ══ CROSS ══ "
+cross820 	= input.bool(defval = true,		title = "Cross Min",		group = grpLong,		inline = 'crossneon')
+cross55200  = input.bool(defval = true,		title = "Cross Max",		group = grpLong,		inline = 'crossneon')
 
-var grpLong  = " ═══ EMAS ═══ "
-eMa55     = input.bool(defval = true, title = "", group = grpLong, inline = 'ema55')
-eMa200    = input.bool(defval = true, title = "", group = grpLong, inline = 'ema200')
+lengthMin		= 8
+lengthMed		= 20
+lengthMax		= 55
+lengthTendency	= 200
 
-length8    = input(8,    title = "Extensión",  group = grpLong, inline = 'ema8')
-length20   = input(20,   title = "Extensión",  group = grpLong, inline = 'ema20')
-length55   = input(55,   title = "Extensión",  group = grpLong, inline = 'ema55')
-length200  = input(200,  title = "Extensión",  group = grpLong, inline = 'ema200')
+length          = 14
+transparencia   = 100
 
-lengthFast = input(8,    title = "Min MA",      group = grpLong)
-lengthMed  = input(20,   title = "Med MA",      group = grpLong)
-lengthSlow = input(55,   title = "Max MA",      group = grpLong)
-
-int length          = input(14)
-int transparencia   = input(100)
-
-//  ═══════════════
-//  ═══  Cross  ═══
+//  ══════════════
+//  ═══  Neon  ═══
 //  ═══  Options  ═══
 
 string optionMa	= input.string("SMA", "Tipo de MM", options = ["EMA", "SMA", "RMA", "WMA", "VWMA"])
 
-//  ═══  Cross  ═══
+//  ══════════════
+//  ═══  Neon  ═══
+//  ═══  Types  ═══
+
+type OHL
+    float O = open
+    float H = high
+    float L = low
+    float C = close
+    float V = volume
+
+//  ══════════════
+//  ═══  Neon  ═══
 //  ═══  Functions  ═══
 
 ma(source, length, type) =>
@@ -1526,84 +1533,75 @@ ma(source, length, type) =>
      type == "VWMA" ? ta.vwma(source, length) : // Media Movil Ponderada por volumen
      na
 
-//  ═══════════════
-//  ═══  Cross  ═══
+//  ══════════════
+//  ═══  Neon  ═══
 //  ═══  Instances  ═══
+ohl = OHL.new()
 
-ma8   = ma(ohl.C, length8,    optionMa)
-ma14  = ma(ohl.C, length,     optionMa)
-ma20  = ma(ohl.C, length20,   optionMa)
-ma55  = ma(ohl.C, length55,   optionMa)
-ma200 = ma(ohl.C, length200,  optionMa)
-
-//  ═══════════════
-//  ═══  Cross  ═══
+//  ══════════════
+//  ═══  Neon  ═══
 //  ═══  Math  ═══
 
-float maHeight = ta.percentrank(ma14, 100)
-float transparency = math.min(80, 100 - maHeight)
+float maMin			= ma(ohl.C,		lengthMin,		optionMa)
+float maMed			= ma(ohl.C,		lengthMed,		optionMa)
+float maMax			= ma(ohl.C,		lengthMax,		optionMa)
+float ma14			= ma(ohl.C,		length,			optionMa)
+float ma200			= ma(ohl.C,		lengthTendency,	optionMa)
 
-float maFast       = ma(ohl.C, lengthFast, optionMa)
-float maMed        = ma(ohl.C, lengthMed,  optionMa)
-float maSlow       = ma(ohl.C, lengthSlow, optionMa)
+float maHeight		= ta.percentrank(ma14, 100)
+float transparency	= math.min(80, 100 - maHeight)
 
-bool signal         = maFast > maMed
-color colorCrOver   = signal ? colorCrossLong : colorCrossShort
+bool maRising 		= ta.rising(ma14, 1)
+color lineCross		= maRising ? color.new(colorNeonLong,		transparencia-50) : color.new(colorNeonShort, transparencia-50)
+plot(maMed, title	= "Operativa",		color = lineCross,		linewidth = 5,		editable = false)
+
+bool signal			= maMin > maMed
+color colorCrOver	= signal ? colorNeonLong : colorNeonShort
 
 //  ═══  CrossOver  ═══
-bool crossOver      = ta.crossover(maFast, maSlow)
-bool crossOver20    = ta.crossover(maFast, maSlow)
-bool crossUnder     = ta.crossunder(maFast, maSlow)
+bool crossOver		= ta.crossover(maMin, maMax)
+bool crossOverMed	= ta.crossover(maMed, maMax)
+bool crossUnder		= ta.crossunder(maMin, maMax)
 
-//  ═══════════════
-//  ═══  Cross  ═══
+//  ══════════════
+//  ═══  Neon  ═══
 //  ═══  Display EMAS  ═══
 
 //  ═══  Ma 8  ═══
-plot(ma8, color = color.new(colorCrOver,85), linewidth = 8,  editable = false)
-plot(ma8, color = color.new(colorCrOver,90), linewidth = 16, editable = false)
-plot(ma8, color = color.new(colorCrOver,95), linewidth = 32, editable = false)
-// plot(ma8, color = color.new(colorCrOver,98), linewidth = 40, editable = false)
+plot(cross820 ? maMin : na,					color = color.new(colorCrOver, 85),		linewidth = 8,		editable = false)
+plot(cross820 ? maMin : na,					color = color.new(colorCrOver, 90),		linewidth = 16,		editable = false)
+plot(cross820 ? maMin : na,					color = color.new(colorCrOver, 95),		linewidth = 32,		editable = false)
+maPlotMin = plot(cross820 ? maMin : na,		color = color.new(colorCrOver, 45),		linewidth = 2,		editable = false)
 
 //  ═══  Ma 20  ═══
-plot(ma20, color = color.new(colorCrOver,80), linewidth = 10, editable = false)
-plot(ma20, color = color.new(colorCrOver,90), linewidth = 20, editable = false)
-plot(ma20, color = color.new(colorCrOver,95), linewidth = 32, editable = false)
-plot(ma20, color = color.new(colorCrOver,98), linewidth = 45, editable = false)
+plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 80),		linewidth = 10,		editable = false)
+plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 90),		linewidth = 20,		editable = false)
+plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 95),		linewidth = 32,		editable = false)
+plot(cross820 ? maMed : na,					color = color.new(colorCrOver, 98),		linewidth = 45,		editable = false)
+maPlotMed = plot(cross820 ? maMed : na,		color = color.new(colorCrOver, 45),		linewidth = 2,		editable = false)
 
 //  ═══  Ma 55  ═══
-plot(eMa55 ? ma55 : na, color = color.new(colorCrOver,92), linewidth = 8,  editable = false)
-plot(eMa55 ? ma55 : na, color = color.new(colorCrOver,95), linewidth = 16, editable = false)
+plot(cross55200 ? maMax : na,				color = color.new(colorCrOver, 92),		linewidth = 8,		editable = false)
+plot(cross55200 ? maMax : na,				color = color.new(colorCrOver, 95),		linewidth = 16,		editable = false)
+maPlotMax  = plot(cross55200 ? maMax : na,	color = color.new(colorCrOver, 89),		linewidth = 2,		editable = false)
 
-//  ═══════════════
-//  ═══  Cross  ═══
-//  ═══  Shadow  ═══
-maPlot8   = plot(ma8,  color = color.new(colorCrOver,45), linewidth = 2, editable = false)
-maPlot20  = plot(ma20, color = color.new(colorCrOver,45), linewidth = 2, editable = false)
+//  ═══  Ma 200  ═══
+maPlot200 = plot(cross55200 ? ma200 : na,	color = color.new(colorVisaBrandPrimary, 87),	linewidth = 3,		editable = false,	title = "Ma 200",	style = plot.style_area)
 
-//  ═══════════════
-//  ═══  Cross  ═══
-//  ═══  Plots  ═══
-maPlot55  = plot(eMa55 ? ma55 : na,   color = color.new(colorCrOver, 89),  linewidth = 2, editable = false)
-maPlot200 = plot(eMa200 ? ma200 : na, color = color.new(colorVisaBrandPrimary, 87),  linewidth = 3, editable = false, title = "Ma 200", style = plot.style_area)
-
-//  ═══════════════
-//  ═══  Cross  ═══
+//  ══════════════
+//  ═══  Neon  ═══
 //  ═══  Fills  ═══
-fill(maPlot8, maPlot20, color = color.new(colorCrOver,80), title = "CrossOver")
-fill(maPlot20, maPlot55, color = color.new(colorCrOver,95), title = "CrossOver")
+fill(maPlotMin,		maPlotMed,		color = color.new(colorCrOver,80),		title = "CrossOver")
+fill(maPlotMed,		maPlotMax,		color = color.new(colorCrOver,95),		title = "CrossOver")
 
-//  ═══════════════
-//  ═══  Cross  ═══
+//  ══════════════
+//  ═══  Neon  ═══
 //  ═══  Line Cross  ═══
 
-bool maRising  = ta.rising(ma14, 1)
-color lineCross = maRising ? color.new(colorCrossLong, transparencia-50) : color.new(colorCrossShort, transparencia-50)
-plot(ma20, title = "Operativa", color = lineCross, linewidth = 5, editable = false)
 
-//  ═══════════════
-//  ═══  Cross  ═══
+
+//  ══════════════
+//  ═══  Neon  ═══
 //  ═══  Shape  ═══
 
-bgcolor(crossOver ? color.new(colorCrossLong, 88) : crossUnder ? color.new(colorCrossShort, 88) : na, show_last = 150, title = "Reseñas")
-
+bgcolor(crossOver ? color.new(colorNeonLong, 88) : crossUnder ? color.new(colorNeonShort, 88) : na, show_last = 150, title = "Reseñas")
