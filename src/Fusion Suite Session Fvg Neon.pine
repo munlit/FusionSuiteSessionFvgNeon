@@ -1514,13 +1514,6 @@ string optionMa	= input.string("SMA", "Tipo de MM", options = ["EMA", "SMA", "RM
 //  ═══  Neon  ═══
 //  ═══  Types  ═══
 
-type OHL
-    float O = open
-    float H = high
-    float L = low
-    float C = close
-    float V = volume
-
 //  ══════════════
 //  ═══  Neon  ═══
 //  ═══  Functions  ═══
@@ -1536,10 +1529,7 @@ ma(source, length, type) =>
 //  ══════════════
 //  ═══  Neon  ═══
 //  ═══  Instances  ═══
-ohl = OHL.new()
 
-//  ══════════════
-//  ═══  Neon  ═══
 //  ═══  Math  ═══
 
 float maMin			= ma(ohl.C,		lengthMin,		optionMa)
