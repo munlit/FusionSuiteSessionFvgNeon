@@ -1,0 +1,1479 @@
+// ╔═══════════════════════════════════════╗
+// ║  @Ultr                                ║
+// ║  Fussion Suite Fvg Neon               ║
+// ╚═══════════════════════════════════════╝
+// ║  Sessions & Killzones - Forex Market  ║
+// ╚═══════════════════════════════════════╝
+// ║  Suite Fibo Areas                     ║
+// ╚═══════════════════════════════════════╝
+// ║  Fvg Position Bar                     ║
+// ╚═══════════════════════════════════════╝
+
+
+//@version=5
+indicator("Sessions & KillZones Forex Market [@Ultr]", "Sessions & KillZones FM [@Ultr]", overlay = true, max_bars_back = 5000, max_boxes_count = 500,max_labels_count = 500,max_lines_count = 500)
+
+//  ═════════════════
+//  ══  FM  ══
+//  ══  Colors  ══
+
+//  ══  Standard  ══
+	//  color colorAqua							= color.aqua		// #00BCD4		Aqua
+	//  color colorBlue							= color.blue		// #2196F3		Blue
+	//  color colorTeal							= color.teal		// #00897B		Teal
+	//  color colorGreen						= color.green		// #4CAF50		Green
+	//  color colorOlive						= color.olive		// #808000		Olive
+	//  color colorLime							= color.lime		// #00E676		Lime
+	//  color colorYellow						= color.yellow		// #FFEB3B		Yellow
+	//  color colorOrange						= color.orange		// #FF9800		Orange
+	//  color colorMaroon						= color.maroon		// #880E4F		Maroon
+	//  color colorRed							= color.red			// #FF5252		Red
+	//  color colorFuchsia						= color.fuchsia		// #E040FB		Fuchsia
+	//  color colorPurple						= color.purple		// #9C27B0		Purple
+	//  color colorNavy							= color.navy		// #311B92		Navy
+	//  color colorBlack						= color.black		// #363A45		Black
+	//  color colorGray							= color.gray		// #787B86		Gray
+	//  color colorSilver						= color.silver		// #B2B5BE		Silver
+	//  color colorWhite						= color.white		// #FFFFFF		White
+
+//  ══  Ameritrade  ══
+    //  color colorAmeritradeWhite				= #FFFFFF			// AmeritradeWhite
+    //  color colorAmeritradeGrayPlatinum		= #F7F7F7			// AmeritradeGrayPlatinum
+color colorAmeritradeGrayNickel			        = #F1F1F1			// AmeritradeGrayNickel
+    //  color colorAmeritradeGrayNickelDark20	= #C0C0C0			// AmeritradeGrayNickelDark20
+color colorAmeritradeGrayAluminum		        = #E6E7E9			// AmeritradeGrayAluminum
+color colorAmeritradeGrayAsh			        = #D8D8D8			// AmeritradeGrayAsh
+    //  color colorAmeritradeGrayStone			= #999999			// AmeritradeGrayStone
+    //  color colorAmeritradeGrayIron			= #666666			// AmeritradeGrayIron
+    //  color colorAmeritradeGrayCharcoal		= #333333			// AmeritradeGrayCharcoal
+    //  color colorAmeritradeBlack				= #000000			// AmeritradeBlack
+    //  color colorAmeritradeGreenCabbage		= #EBF6E9			// AmeritradeGreenCabbage
+    //  color colorAmeritradeGreenVerdeLight70	= #B4D6B2			// AmeritradeGreenVerdeLight70
+    //  color colorAmeritradeGreenVerdeLight50	= #83BC7F			// AmeritradeGreenVerdeLight50
+    //  color colorAmeritradeGreenVerdeNat		= #40a829			// AmeritradeGreenVerdeNat
+    //  color colorAmeritradeGreenVerdeLight20	= #399333			// AmeritradeGreenVerdeLight20
+    //  color colorAmeritradeGreenVerde			= #087900			// AmeritradeGreenVerde
+    //  color colorAmeritradeGreenVerdeDark20	= #066000			// AmeritradeGreenVerdeDark20
+color colorAmeritradeGreenMoss			        = #BEE7D3			// AmeritradeGreenMoss
+    //  color colorAmeritradeGreenMint			= #6DC4BC			// AmeritradeGreenMint
+    //  color colorAmeritradeGreenPine			= #38635A			// AmeritradeGreenPine
+    //  color colorAmeritradeRedRose			= #FAD1CF			// AmeritradeRedRose
+    //  color colorAmeritradeRedRojaLight50		= #E08988			// AmeritradeRedRojaLight50
+    //  color colorAmeritradeRedRojaLight20		= #CD4241			// AmeritradeRedRojaLight20
+    //  color colorAmeritradeRedRoja			= #C11312			// AmeritradeRedRoja
+    //  color colorAmeritradeRedRojaDark20		= #940F0E			// AmeritradeRedRojaDark20
+    //  color colorAmeritradeorangePeach		= #FCE7CA			// AmeritradeorangePeach
+    //  color colorAmeritradeorangeCarrot		= #ED8902			// AmeritradeorangeCarrot
+    //  color colorAmeritradeorangeYam			= #BD5310			// AmeritradeorangeYam
+    //  color colorAmeritradeblueFrost			= #E1EEF9			// AmeritradeblueFrost
+color colorAmeritradeblueLagoon			        = #316486			// AmeritradeblueLagoon
+    //  color colorAmeritradeblueNavy			= #2A5673			// AmeritradeblueNavy
+    //  color colorAmeritradeblueNcean			= #64A1C6			// AmeritradeblueNcean
+    //  color colorAmeritradepurpleEggPlant		= #732181			// AmeritradepurpleEggPlant
+
+//  ══  Axi  ══
+color colorAxiPrimary					        = #fc404d			// AxiPrimary
+color colorAxiSecondary					        = #282424			// AxiSecondary
+color colorAxiAccent					        = #61ce70			// AxiAccent
+color colorAxi7a46f22					        = #d11c36			// Axi7a46f22
+color colorAxi1519066c					        = #fc404d			// Axi1519066c
+color colorAxi3d4fa1a1					        = #f0ebe3			// Axi3d4fa1a1
+    //  color colorAxi638b46c1					= #fcd758			// Axi638b46c1
+    //  color colorAxid07bac9					= #f9b4a8			// Axid07bac9
+color colorAxie63a114					        = #2c4d5a			// Axie63a114
+    //  color colorAxi8bf0845					= #a4d866			// Axi8bf0845
+    //  color colorAxi75c6da1					= #282424			// Axi75c6da1
+    //  color colorAxi378280f					= #45c2c7			// Axi378280f
+color colorAxi4de92c5					        = #6caddf			// Axi4de92c5
+color colorAxi413dab8					        = #00275d			// Axi413dab8
+color colorAxib3fab89					        = #55165c			// Axib3fab89
+color colorAxi548138f					        = #45c2c7			// Axi548138f
+color colorAxi5ed9920					        = #ea1616			// Axi5ed9920
+color colorAxi70f7335					        = #dd0606			// Axi70f7335
+
+//  ══  GrayScale  ══
+    //  color colorGrayScaleFocus				= #2d7aed			// GrayScaleFocus
+    //  color colorGrayScaleWhite				= #fff				// GrayScaleWhite
+    //  color colorGrayScaleBlack				= #000				// GrayScaleBlack
+color colorGrayScalePrimaryBlackberry	        = #2e234b			// GrayScalePrimaryBlackberry
+    //  color colorGrayScalePrimaryBlackberry40	= rgba(46, 35, 75, .4))				// GrayScalePrimaryBlackberry40
+    //  color colorGrayScalePrimaryBlackberry65	= rgba(46, 35, 75, .65))			// GrayScalePrimaryBlackberry65
+    //  color colorGrayScalePrimaryCoral		= #ffb198			// GrayScalePrimaryCoral
+color colorGrayScaleSecondaryForestGreen	    = #244024          // GrayScaleSecondaryForestGreen
+    //  color colorGrayScaleSecondaryKeyLime	= #b5ce6f			// GrayScaleSecondaryKeyLime
+color colorGrayScaleSecondaryLavender	        = #c5bfe4			// GrayScaleSecondaryLavender
+    //  color colorGrayScaleSecondaryLavender40	= rgba(197, 191, 228, .4))			// GrayScaleSecondaryLavender40
+    //  color colorGrayScalesecondaryLavender60	= rgba(197, 191, 228, .6))			// GrayScalesecondaryLavender60
+    //  color colorGrayScalehoverWhite			= #c0bdc9			// GrayScalehoverWhite
+    //  color colorGrayScalehoverBlackberry		= #42326b			// GrayScalehoverBlackberry
+    //  color colorGrayScaledisabledBlackberry	= #4d4466			// GrayScaledisabledBlackberry
+    //  color colorGrayScaleactiveBlackberry	= #4d4466			// GrayScaleactiveBlackberry
+    //  color colorGrayScalehoverCcoral			= #ffcdbd			// GrayScalehoverCcoral
+    //  color colorGrayScaleactiveCcoral		= #ff9e80			// GrayScaleactiveCcoral
+    //  color colorGrayScalehoverGray			= #827b93			// GrayScalehoverGray
+    //  color colorGrayScalehoverGray2			= #6d6581			// GrayScalehoverGray2
+    //  color colorGrayScalegrayCharcoal		= #282525			// GrayScalegrayCharcoal
+    //  color colorGrayScalegrayCharcoal70		= rgba(40, 37, 37, .7))				// GrayScalegrayCharcoal70
+    //  color colorGrayScalegrayCharcoal80		= rgba(40, 37, 37, .8))				// GrayScalegrayCharcoal80
+    //  color colorGrayScalegrayLight			= #f5f5f5			// GrayScalegrayLight
+    //  color colorGrayScalegrayMedium			= #eee				// GrayScalegrayMedium
+    //  color colorGrayScalegray70				= #696666			// GrayScalegray70
+    //  color colorGrayScalegrayDark			= #c1c1c1			// GrayScalegrayDark
+color colorGrayScalewebSeasalt			        = #fafafc			// GrayScalewebSeasalt
+color colorGrayScalewebDivider			        = #e9e7f1			// GrayScalewebDivider
+color colorGrayScalewebBackground		        = #f3f2fa			// GrayScalewebBackground
+    //  color colorGrayScalewebSecondaryText	= #77708a			// GrayScalewebSecondaryText
+    //  color colorGrayScalewebStroke			= #d3ceeb			// GrayScalewebStroke
+    //  color colorGrayScalewebErrors			= #e00000			// GrayScalewebErrors
+    //  color colorGrayScalewebService			= #2d7aed			// GrayScalewebService
+
+//  ══  Interactive  ══
+	//  color colorInteractivePrimary3				= hsla(355, 85%, 46%, 0.03)			// InteractivePrimary3
+	//  color colorInteractivePrimary5				= hsla(355, 85%, 46%, 0.05)			// InteractivePrimary5
+	//  color colorInteractivePrimary10				= hsla(355, 85%, 46%, 0.10)			// InteractivePrimary10
+	//  color colorInteractivePrimary20				= hsla(355, 85%, 46%, 0.20)			// InteractivePrimary20
+	//  color colorInteractivePrimary30				= hsla(355, 85%, 46%, 0.30)			// InteractivePrimary30
+	//  color colorInteractivePrimary40				= hsla(355, 85%, 46%, 0.40)			// InteractivePrimary40
+	//  color colorInteractivePrimary50				= hsla(355, 85%, 46%, 0.50)			// InteractivePrimary50
+	//  color colorInteractivePrimary60				= hsla(355, 85%, 46%, 0.60)			// InteractivePrimary60
+	//  color colorInteractivePrimary70				= hsla(355, 85%, 46%, 0.70)			// InteractivePrimary70
+	//  color colorInteractivePrimary80				= hsla(355, 85%, 46%, 0.80)			// InteractivePrimary80
+	//  color colorInteractivePrimary90				= hsla(355, 85%, 46%, 0.90)			// InteractivePrimary90
+	//  color colorInteractivePrimary				= hsla(355, 85%, 46%, 1.0)			// InteractivePrimary
+	//  color colorInteractivePrimaryDark10			= hsla(355, 85%, 41%, 1.0)			// InteractivePrimaryDark10
+	//  color colorInteractivePrimaryDark20			= hsla(355, 85%, 36%, 1.0)			// InteractivePrimaryDark20
+	//  color colorInteractivePrimaryDark30			= hsla(355, 85%, 31%, 1.0)			// InteractivePrimaryDark30
+	//  color colorInteractivePrimaryDark40			= hsla(355, 85%, 26%, 1.0)			// InteractivePrimaryDark40
+	//  color colorInteractivePrimaryDark50			= hsla(355, 85%, 21%, 1.0)			// InteractivePrimaryDark50
+	//  color colorInteractiveSecondary3			= hsla(0, 0%, 13%, 0.03)			// InteractiveSecondary3
+	//  color colorInteractiveSecondary5			= hsla(0, 0%, 13%, 0.05)			// InteractiveSecondary5
+	//  color colorInteractiveSecondary10			= hsla(0, 0%, 13%, 0.10)			// InteractiveSecondary10
+	//  color colorInteractiveSecondary20			= hsla(0, 0%, 13%, 0.20)			// InteractiveSecondary20
+	//  color colorInteractiveSecondary30			= hsla(0, 0%, 13%, 0.30)			// InteractiveSecondary30
+	//  color colorInteractiveSecondary40			= hsla(0, 0%, 13%, 0.40)			// InteractiveSecondary40
+	//  color colorInteractiveSecondary50			= hsla(0, 0%, 13%, 0.50)			// InteractiveSecondary50
+	//  color colorInteractiveSecondary60			= hsla(0, 0%, 13%, 0.60)			// InteractiveSecondary60
+	//  color colorInteractiveSecondary70			= hsla(0, 0%, 13%, 0.70)			// InteractiveSecondary70
+	//  color colorInteractiveSecondary80			= hsla(0, 0%, 13%, 0.80)			// InteractiveSecondary80
+	//  color colorInteractiveSecondary90			= hsla(0, 0%, 13%, 0.90)			// InteractiveSecondary90
+	//  color colorInteractiveSecondary				= hsla(0, 0%, 13%, 1.0)				// InteractiveSecondary
+	//  color colorInteractiveSecondaryDark10		= hsla(0, 0%, 10%, 1.0)				// InteractiveSecondaryDark10
+	//  color colorInteractiveSecondaryDark20		= hsla(0, 0%, 7%, 1.0)				// InteractiveSecondaryDark20
+	//  color colorInteractiveSecondaryDark30		= hsla(0, 0%, 4%, 1.0)				// InteractiveSecondaryDark30
+	//  color colorInteractiveSecondaryDark40		= hsla(0, 0%, 1%, 1.0)				// InteractiveSecondaryDark40
+	//  color colorInteractiveSecondaryDark50		= hsla(0, 0%, 0%, 1.0)				// InteractiveSecondaryDark50
+	//  color colorInteractiveTertiary3				= hsla(202, 76%, 19%, 0.03)			// InteractiveTertiary3
+	//  color colorInteractiveTertiary5				= hsla(202, 76%, 19%, 0.05)			// InteractiveTertiary5
+	//  color colorInteractiveTertiary10			= hsla(202, 76%, 19%, 0.10)			// InteractiveTertiary10
+	//  color colorInteractiveTertiary20			= hsla(202, 76%, 19%, 0.20)			// InteractiveTertiary20
+	//  color colorInteractiveTertiary30			= hsla(202, 76%, 19%, 0.30)			// InteractiveTertiary30
+	//  color colorInteractiveTertiary40			= hsla(202, 76%, 19%, 0.40)			// InteractiveTertiary40
+	//  color colorInteractiveTertiary50			= hsla(202, 76%, 19%, 0.50)			// InteractiveTertiary50
+	//  color colorInteractiveTertiary60			= hsla(202, 76%, 19%, 0.60)			// InteractiveTertiary60
+	//  color colorInteractiveTertiary70			= hsla(202, 76%, 19%, 0.70)			// InteractiveTertiary70
+	//  color colorInteractiveTertiary80			= hsla(202, 76%, 19%, 0.80)			// InteractiveTertiary80
+	//  color colorInteractiveTertiary90			= hsla(202, 76%, 19%, 0.90)			// InteractiveTertiary90
+	//  color colorInteractiveTertiary				= hsla(202, 76%, 19%, 1.0)			// InteractiveTertiary
+	//  color colorInteractiveTertiaryDark10		= hsla(202, 76%, 14%, 1.0)			// InteractiveTertiaryDark10
+	//  color colorInteractiveTertiaryDark20		= hsla(202, 76%, 9%, 1.0)			// InteractiveTertiaryDark20
+	//  color colorInteractiveTertiaryDark30		= hsla(202, 76%, 4%, 1.0)			// InteractiveTertiaryDark30
+	//  color colorInteractiveTertiaryDark40		= hsla(202, 76%, 0%, 1.0)			// InteractiveTertiaryDark40
+
+//  ══  Visa  ══
+color colorVisaBrandPrimary				        = #1434CB			// VisaBrandPrimary
+color colorVisaBrandPrimaryLight		        = #3B57DE			// VisaBrandPrimaryLight
+    //  color colorVisaBrandPrimaryDark			= #021E4C			// VisaBrandPrimaryDark
+    //  color colorVisaBrandSecondary			= #FCC015			// VisaBrandSecondary
+    //  color colorVisaBrandSecondaryLight		= #FFD700			// VisaBrandSecondaryLight
+    //  color colorVisaBrandSecondaryDark		= #F7B600			// VisaBrandSecondaryDark
+    //  color colorVisaBrandTertiary7			= #2C2C2C			// VisaBrandTertiary7
+    //  color colorVisaBrandTertiary6			= #5C5C5C			// VisaBrandTertiary6
+    //  color colorVisaBrandTertiary5			= #979797			// VisaBrandTertiary5
+    //  color colorVisaBrandTertiary4			= #B9B9B9			// VisaBrandTertiary4
+color colorVisaBrandTertiary3			        = #DEDEDE			// VisaBrandTertiary3
+    //  color colorVisaBrandTertiary2			= #EEEEEE			// VisaBrandTertiary2
+    //  color colorVisaBrandTertiary1			= #F7F7F7			// VisaBrandTertiary1
+
+//  ══  Latam  ══
+//  colorLatamRedBackground					= rgb(232, 17, 75)			//  Latam Red Background
+
+//  ══  Arbe Robotics  ══
+color colorArbePrimary					        = #0035FF			// ArbePrimary
+color colorArbePrimaryLight				        = #0640FF			// ArbePrimaryLight
+color colorArbeSecondary				        = #04ebff			// ArbeSecondary
+
+//  ══  AutoX  ══
+    //  color colorAutoXPrimary					= #2253F0			// AutoXPrimary
+    //  color colorAutoXPrimaryLight			= #0050F9			// AutoXPrimaryLight
+color colorAutoXSecondary				        = #75ebc0			// AutoXSecondary
+
+//  ══  EEG  ══
+color colorEegSkyBlue30					        = #01EBF9			// EEGSkyBlue30
+color colorEegSkyBlue40					        = #00E7FD			// EEGSkyBlue40
+color colorEegFucsia40					        = #FF00B1			// EEGFucsia40
+color colorEegFucsia50					        = #FE0CB6			// EEGFucsia50
+
+//  ══  Bright Line  ══
+color colorBrightYellow10				        = #FBFD73			// BrightLineBackground Yellow Light
+color colorBrightYellow20				        = #FFFD52			// BrightLineBackground Yellow Light
+color colorBrightYellow30				        = #FDF43C			// BrightLineBackground Yellow High
+color colorBrightYellow40				        = #FEF301			// BrightLineBackground Yellow Nit
+color colorBrightYellow50				        = #FFDB00			// BrightLineBackground Yellow Base
+
+//  ══  TradingView  ══
+color colorTvLightMenta50				        = #00ffd5			// TradingViewMenta
+color colorTvLightGreen50				        = #33ffac			// TradingViewGreenNit
+color colorTvBlue50						        = #0034c5			// TradingViewBlue
+color colorTvLightYellow50				        = #eedd45			// TradingViewYellow
+color colorTvNitRed40					        = #e91e63			// TradingViewRedLight
+color colorTvLightBlueSky50				        = #12cef8			// TradingViewBlueSky
+
+//  ══  TFlab  ══
+color colorTFlabAsia					        = #8bbcfc			// Lite TFlabAsia
+color colorTFlabSydney					        = #F0B884			// Lite TFlabSydney
+    //  color colorTFlabTokyo					= #0CC1C0			// Lite TFlabTokyo
+    //  color colorTFlabShanghai				= #FF1010			// Lite TFlabShanghai		#ea1616
+    //  color colorTFlabEuro					= #BBE8B5			// Lite TFlabEuro
+    //  color colorTFlabLondon					= #ACBBE8			// Lite TFlabLondon
+    //  color colorTFlabNewyork					= #C5ACE8			// Lite TFlabNewyork
+    //  color colorTFlabNYSE					= #87c2d4			// Lite TFlabNYSE
+
+//  ══  Ultr  ══
+color colorUltrBlueSky10				        = #59F2E9			// UltrBlueSky10
+color colorUltrBlueSky20				        = #39F0EA			// UltrBlueSky20
+color colorUltrMenta10					        = #E0F9EF			// UltrMenta10
+color colorUtlrMenta20					        = #80F3EC			// UtlrMenta20
+color colorUltrMenta30					        = #7FFFD4			// UltrMenta30
+color colorUltrMenta40					        = #73FFCA			// UltrMenta40
+color colorUltrRose20					        = #ffa3e3			// UltrRose
+color colorUltrFucsia30					        = #ff6fd3			// UltrFucsia
+color colorUltrLyla						        = #7E57C2			// UltrLyla
+color colorUltrLightGray				        = #787B86			// UltrLightGray
+color colorUltrRedNit					        = #de0011			// UltrRedNit
+
+
+///////////////////////////////////////////////////////////////////////////////// 
+///////////////////////////////////////////////////////////////////////////////// 
+
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Variables  ══
+
+//  ══  Session Sydney  ══
+grpSydney			= " Sydney "
+sesSydneyShow		= input(false,										title = '',					inline = 'lineSydney',			group = grpSydney) 
+sesSydneySess		= input.session('1700-0200',						title = '',					inline = 'lineSydney',			group = grpSydney)
+sesSydneyColor		= input.color(color.new(colorTFlabSydney, 60),		title = '',					inline = 'lineSydney',			group = grpSydney)
+sesSydneyText		= 'Sydney'
+
+//  ══  Session Tokyo  ══
+grpTokyo			= " Tokyo "
+sesTokyoShow		= input(true,										title = '',					inline = 'lineTokyo',			group = grpTokyo) 
+sesTokyoSess		= input.session('1800-0300',						title = '',					inline = 'lineTokyo',			group = grpTokyo)
+sesTokyoColor		= input.color(color.new(colorTFlabAsia, 60),		title = '',					inline = 'lineTokyo',			group = grpTokyo)
+sesTokyoText		= 'Tokyo'
+
+//  ══  Session London  ══
+grpLondon			= " Londres "
+sesLondonShow		= input(true,										title = '',					inline = 'lineLondres',			group = grpLondon) 
+sesLondonSess		= input.session('0200-1100',						title = '',					inline = 'lineLondres',			group = grpLondon)
+sesLondonColor		= input.color(color.new(colorUltrRose20, 60),		title = '',					inline = 'lineLondres',			group = grpLondon)
+sesLondonText		= 'London'
+
+//  ══  Session New York  ══
+grpNewYork			= " New York "
+sesNewyorkShow		= input(true,										title = '',					inline = 'lineNewyork',			group = grpNewYork) 
+sesNewyorkSess		= input.session('0700-1600',						title = '',					inline = 'lineNewyork',			group = grpNewYork)
+sesNewyorkColor		= input.color(color.new(colorTvLightGreen50, 60),	title = '',					inline = 'lineNewyork',			group = grpNewYork)
+sesNewyorkText		= 'New York'
+
+//  ══  Session NYSE  ══
+grpNYSE				= " NYSE "
+sesNYSEShow			= input(false,										title = '',					inline = 'lineNYSE',			group = grpNYSE) 
+sesNYSESess			= input.session('0830-1500',						title = '',					inline = 'lineNYSE',			group = grpNYSE)
+sesNYSEColor		= input.color(color.new(colorArbeSecondary, 60),	title = '',					inline = 'lineNYSE',			group = grpNYSE)
+sesNYSEText			= 'NYSE'
+
+//  ══  KillZones  ══
+grpKillz			= " Kill Zones "
+killShowAlva		= input(false,										title = '',					inline = 'timeAlva',			group = grpKillz) 
+killShowPre			= input(true,										title = '',					inline = 'timePre',				group = grpKillz) 
+killShowOpen		= input(true,										title = '',					inline = 'timeOpen',			group = grpKillz) 
+killShowRally		= input(true,										title = '',					inline = 'timeRally',			group = grpKillz) 
+killShowClose		= input(false,										title = '',					inline = 'timeClose',			group = grpKillz) 
+
+killTimeAlva		= input.session('0430-0600',						title = '',					inline = 'timeAlva',			group = grpKillz)
+killTimePre			= input.session('0700-0745',						title = '',					inline = 'timePre',				group = grpKillz)
+killTimeOpen		= input.session('0900-1045',						title = '',					inline = 'timeOpen',			group = grpKillz)
+killTimeRally		= input.session('1130-1145',						title = '',					inline = 'timeRally',			group = grpKillz)
+killTimeClose		= input.session('1230-1345',						title = '',					inline = 'timeClose',			group = grpKillz)
+
+killColorAlva		= colorTFlabSydney
+killColorPre		= colorTFlabAsia
+killColorOpen		= colorUltrRose20
+killColorRally		= colorTvLightGreen50
+killColorClose		= colorArbeSecondary
+
+//  ══  Time Zone  ══
+string timeNYSE				= "UTC-5"									//	'UTC-5'
+string timeNewY				= "America/New_York"						//	'UTC.4'
+string timeChig				= "America/Chicago"							//	'UTC-5'
+string timeArge				= "America/Argentina/Buenos_Aires"			//	'UTC-3'
+string timeLond				= "Europe/London"							//	'UTC+1'
+string timeToky				= "Asia/Tokyo"								//	'UTC+9'
+string timeSydn				= "Australia/Sydney" 						//	'UTC+10'
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Options  ══
+
+optionLines		= input.string  (defval="Dotted",		title="Line",			options = ["Solid", "Dotted", "Dashed"])
+optionTextSize	= input.string  (defval="Small",		title="Size",			options = ["Tiny", "Small", "Auto", "Normal"])
+
+optionSession	= input.string  (defval="Chicago",		title="Sesiones",		options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
+optionKillZ		= input.string  (defval="Chicago",		title="KillZones",		options = ["New York", "Chicago", "NYSE", "Londres", "Tokyo", "Sydney, Argentina"])
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Types  ══
+
+type OHL
+	float O = open
+	float H = high
+	float L = low
+	float C = close
+	float V = volume
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Switch  ══
+
+string switchLines = switch optionLines
+	"Solid"		 => line.style_solid			//  Solid
+	"Dashed"	 => line.style_dashed			//  Dashed
+	"Dotted"	 => line.style_dotted			//  Dotted
+	=> line.style_solid	
+
+string switchText = switch optionTextSize
+	"Auto"		=> size.auto
+	"Tiny"		=> size.tiny
+	"Small"		=> size.small
+	"Normal"	=> size.normal
+
+string switchSession = switch optionSession
+	"NYSE"	 	 => timeNYSE
+	"New York"	 => timeNewY
+	"Chicago"	 => timeChig
+	"Londres"	 => timeLond
+	"Tokyo"		 => timeToky
+	"Sydney"	 => timeSydn
+	"Argentina"	 => timeArge
+	=> timeChig	
+
+string switchKillZone = switch optionKillZ
+	"NYSE"	 	 => timeNYSE
+	"New York"	 => timeNewY				
+	"Chicago"	 => timeChig	
+	"Londres"	 => timeLond	
+	"Tokyo"		 => timeToky
+	"Sydney"	 => timeSydn
+	"Argentina"	 => timeArge
+	=> timeChig
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Instances  ══
+
+ohl = OHL.new()
+
+//  ══  Info Table  ══
+grpTableShow			= "Información"
+ShowInfoTable			= input(defval = true,											title = "",				inline = 'Table Info',				group =	grpTableShow)
+
+tableBorderColor		= input(color.new(colorArbeSecondary, 85),						title = "",				inline = 'Table Info',				group = grpTableShow)
+tableGroundColor		= input(color.new(colorAxi413dab8, 25),							title = "",				inline = 'Table Info',				group = grpTableShow)
+tableTextColor			= input(color.new(colorGrayScalewebSeasalt, 40),				title = "",				inline = 'Table Info',				group = grpTableShow)
+tableOpenColor			= input(color.new(colorUltrMenta40, 25),						title = "",				inline = 'Table Info',				group = grpTableShow)
+tableClosedColor		= input(color.new(colorTvNitRed40, 25),							title = "",				inline = 'Table Info',				group = grpTableShow,			tooltip = "Marco, Fondo, Texto, Open, Close")
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Functions  ══
+
+//  ══  Sessions  ══
+OnSessTokyo			= math.sign(nz(time(timeframe.period,		sesTokyoSess,		switchSession)))
+OnSessLondon		= math.sign(nz(time(timeframe.period,		sesLondonSess,		switchSession)))
+OnSessNewyork		= math.sign(nz(time(timeframe.period,		sesNewyorkSess,		switchSession)))
+OnSessNYSE			= math.sign(nz(time(timeframe.period,		sesNYSESess,		switchSession)))
+OnSessSydney		= math.sign(nz(time(timeframe.period,		sesSydneySess,		switchSession)))
+
+//  ══  KillZones  ══
+OnKillZoneAlva		= math.sign(nz(time(timeframe.period,		killTimeAlva,		switchKillZone)))
+OnKillZonePre		= math.sign(nz(time(timeframe.period,		killTimePre,		switchKillZone)))
+OnKillZoneOpen		= math.sign(nz(time(timeframe.period,		killTimeOpen,		switchKillZone)))
+OnKillZoneRally		= math.sign(nz(time(timeframe.period,		killTimeRally,		switchKillZone)))
+OnKillZoneClose		= math.sign(nz(time(timeframe.period,		killTimeClose,		switchKillZone)))
+
+//  ══  High & Low Session Detector  ══
+LowHighSessionDetector(On_Session, Color_Session, Text_Session) =>
+	var int Bar		= 0
+	var float High	= 0.0 
+	var float Low	= 0.0
+	var box BoX		= na
+	var label LabeL	= na 
+
+	if  (On_Session[1] == 0 and On_Session == 1)
+		Bar			:= bar_index
+		High		:= high
+		Low			:= low
+
+	else if (On_Session[1] == 1 and On_Session == 1)
+		High		:= math.max(high , High) 
+		Low			:=   math.min(low , Low)
+
+	else if On_Session == 0
+		High		:= 0.0 
+		Low			:= 0.0
+		Bar			:= 0
+
+	if On_Session > On_Session[1]
+		BoX			:= box.new(bar_index,High, bar_index , Low, bgcolor = color.new(Color_Session, 98),
+		 border_color = color.new(Color_Session, 35),
+		 border_width = 2,
+		 border_style = switchLines)
+		
+		LabeL		:= label.new(Bar, High , text = Text_Session ,xloc = xloc.bar_index, yloc = yloc.price, size = switchText,
+		 style = (Text_Session == 'Sydney' or Text_Session == 'Europe' ) ? label.style_label_lower_right  : 
+		 Text_Session == 'Asia' ?  label.style_label_down :  label.style_label_lower_left,
+		 textcolor = Color_Session, color = color.rgb(255, 255, 255, 100))
+
+	if On_Session and On_Session == On_Session[1]
+		box.set_top(BoX, High)
+		box.set_bottom(BoX, Low)
+		box.set_right(BoX, bar_index)
+		label.set_x(LabeL,math.round(math.avg(Bar,bar_index)))
+		label.set_y(LabeL, High)
+
+	[High , Low ]
+
+if sesSydneyShow
+	[HighS, LowS]	= LowHighSessionDetector(OnSessSydney,		sesSydneyColor,			sesSydneyText)
+
+if sesTokyoShow
+	[HighT, LowT]	= LowHighSessionDetector(OnSessTokyo,		sesTokyoColor,			sesTokyoText)
+
+if sesLondonShow
+	[HighL, LowL]	= LowHighSessionDetector(OnSessLondon,		sesLondonColor,			sesLondonText)
+
+if sesNewyorkShow
+	[HighN, LowN]	= LowHighSessionDetector(OnSessNewyork,		sesNewyorkColor,		sesNewyorkText)
+
+if sesNYSEShow
+	[HighNY, LowNY]	= LowHighSessionDetector(OnSessNYSE,		sesNYSEColor,			sesNYSEText)
+
+//  ══  High & Low KillZones  ══
+LowHighKillZonesDraw(onKillzones, colorKillzones) =>
+	var int Bar		= 0
+	var float High	= 0.0 
+	var float Low	= 0.0
+	var box BoX		= na
+	var label LabeL	= na 
+
+	if  (onKillzones[1] == 0 and onKillzones == 1)
+		Bar			:= bar_index
+		High		:= high
+		Low			:= low
+
+	else if (onKillzones[1] == 1 and onKillzones == 1)
+		High		:= math.max(high , High) 
+		Low			:=   math.min(low , Low)
+
+	else if onKillzones == 0
+		High		:= 0.0 
+		Low			:= 0.0
+		Bar			:= 0
+
+	if onKillzones > onKillzones[1]
+		BoX			:= box.new(bar_index,High, bar_index , Low, bgcolor = color.new(colorKillzones, 85),
+		 border_color = color.new(colorKillzones, 60),
+		 border_width = 1,
+		 border_style = switchLines)
+		
+	if onKillzones and onKillzones == onKillzones[1]
+		box.set_top(BoX, High)
+		box.set_bottom(BoX, Low)
+		box.set_right(BoX, bar_index)
+		label.set_x(LabeL,math.round(math.avg(Bar,bar_index)))
+		label.set_y(LabeL, High)
+
+	[High , Low ]
+
+if killShowAlva
+	[HighS, LowS]	= LowHighKillZonesDraw(OnKillZoneAlva,		killColorAlva)
+
+if killShowPre
+	[HighT, LowT]	= LowHighKillZonesDraw(OnKillZonePre,		killColorPre)
+
+if killShowOpen
+	[HighL, LowL]	= LowHighKillZonesDraw(OnKillZoneOpen,		killColorOpen)
+
+if killShowRally
+	[HighN, LowN]	= LowHighKillZonesDraw(OnKillZoneRally,		killColorRally)
+
+if killShowClose
+	[HighNY, LowNY]	= LowHighKillZonesDraw(OnKillZoneClose,		killColorClose)
+
+//  ══════════
+//  ══  FM  ══
+//  ══  Display  ══
+
+//  ══  Table  ══
+var InfoTable	= table.new(position.top_right, 4, 7,
+ bgcolor		= tableGroundColor,		border_color	= tableBorderColor,
+ border_width	= 1,					frame_color		= #373a46,
+ frame_width	= 1)
+
+if ShowInfoTable
+	table.cell			(InfoTable, 0, 0,		'Trading',			text_color = color.white,			text_size = switchText)
+	table.merge_cells	(InfoTable, 0, 0, 3, 0)
+	table.cell			(InfoTable, 0, 1,		'Sesión',			text_color = color.white,			text_size = switchText)
+	table.cell			(InfoTable, 1, 1,		'Estado',			text_color = color.white,			text_size = switchText)
+	table.cell			(InfoTable, 2, 1,		'Inicio',			text_color = color.white,			text_size = switchText)
+	table.cell			(InfoTable, 3, 1,		'Cierre',			text_color = color.white,			text_size = switchText)
+
+	table.cell			(InfoTable, 0, 2,		sesSydneyText,		text_color = sesSydneyColor,		text_size = switchText)
+	table.cell			(InfoTable, 0, 3,		sesTokyoText,		text_color = sesTokyoColor,			text_size = switchText)
+	table.cell			(InfoTable, 0, 4,		sesLondonText,		text_color = sesLondonColor,		text_size = switchText)
+	table.cell			(InfoTable, 0, 5,		sesNewyorkText,		text_color = sesNewyorkColor,		text_size = switchText)
+	table.cell			(InfoTable, 0, 6,		sesNYSEText,		text_color = sesNYSEColor,			text_size = switchText)
+	
+	table.cell			(InfoTable, 1, 2,		(OnSessSydney		? 'Open'			: 'Closed')
+	  , bgcolor									= OnSessSydney		? tableOpenColor	: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
+
+	table.cell			(InfoTable, 1, 3,		(OnSessTokyo		? 'Open'			: 'Closed')
+	  , bgcolor									= OnSessTokyo		? tableOpenColor	: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
+
+	table.cell			(InfoTable, 1, 4,		(OnSessLondon		? 'Open'			: 'Closed')
+	  , bgcolor									= OnSessLondon		? tableOpenColor	: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
+
+	table.cell			(InfoTable, 1, 5,		(OnSessNewyork		? 'Open'			: 'Closed')
+	  , bgcolor									= OnSessNewyork		? tableOpenColor	: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
+
+	table.cell			(InfoTable, 1, 6,		(OnSessNYSE			? 'Open'			: 'Closed')
+	  , bgcolor									= OnSessNYSE		? tableOpenColor	: tableClosedColor
+	  , text_color								= tableGroundColor
+	  , text_size								= switchText)
+
+	table.cell			(InfoTable, 2, 2,		'17:00' ,			text_color = tableTextColor,			text_size = switchText)
+	table.cell			(InfoTable, 2, 3,		'18:00' ,			text_color = tableTextColor,			text_size = switchText)
+	table.cell			(InfoTable, 2, 4,		'02:00' ,			text_color = tableTextColor,			text_size = switchText) 
+	table.cell			(InfoTable, 2, 5,		'07:00' ,			text_color = tableTextColor,			text_size = switchText)  
+	table.cell			(InfoTable, 2, 6,		'08:30' ,			text_color = tableTextColor,			text_size = switchText)
+
+	table.cell			(InfoTable, 3, 2,		'02:00' ,			text_color = tableTextColor,			text_size = switchText)
+	table.cell			(InfoTable, 3, 3,		'03:00' ,			text_color = tableTextColor,			text_size = switchText)
+	table.cell			(InfoTable, 3, 4,		'11:00' ,			text_color = tableTextColor,			text_size = switchText) 
+	table.cell			(InfoTable, 3, 5,		'15:57' ,			text_color = tableTextColor,			text_size = switchText)  
+	table.cell			(InfoTable, 3, 6,		'15:00' ,			text_color = tableTextColor,			text_size = switchText)
+
+
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////
+//  ═══  Suite  ═══
+//  ═══  Variables  ═══
+
+var grpSmc		= " ═══ SMC ═══ "
+bullC       = input.color(defval = color.new(colorTvLightMenta50, 60),  title = "Compra",   inline = "7",            group = grpSmc)
+bearC       = input.color(defval = color.new(colorTvNitRed40, 50),      title = "Venta",    inline = "7",            group = grpSmc)
+fvgcol      = input.color(defval = color.new(colorBrightYellow10, 90),  title = "FVG",      inline = "7",            group = grpSmc)
+
+//  ═══  Ob  ═══
+showInt     = input.bool(defval = true, title = "Show Internals",                           group = grpSmc)
+intSens     = input.int(3, "Internals Sensitivity", options =  [3 , 5 , 8 ], inline = "20", group = grpSmc)
+intStru     = input.string(defval = "All", title = "Internal Structure", options = ["All", "BoS", "CHoCH"], inline = "30", group = grpSmc)
+
+showExt     = input.bool(defval = true, title = "Show Externals",                           group = grpSmc)
+extSens     = input.int(25, "Externals Sensitivity", options = [10, 25, 50], inline = "21", group = grpSmc)
+extStru     = input.string(defval = "All", title = "External Structure", options = ["All", "BoS", "CHoCH"], inline = "31", group = grpSmc)
+
+showOB      = input.bool(defval = true, title = "Show Order Blocks",     group = "Swing Blocks")
+showLast    = input.int(defval = 10,    title = "Swing Order Blocks",    group = "Swing Blocks")
+showHHLH    = input.bool(defval = true, title = "Show HH/LH",            group = "Swing Blocks")
+showHLLL    = input.bool(defval = true, title = "Show LH/LL",            group = "Swing Blocks")
+showAOE     = input.bool(defval = true, title = "Show Area of Interest", group = "Swing Blocks")
+
+show1D      = input.bool(defval = true, title = "Show Previous Day High",   group = "High/Low")
+show1DLab   = input.bool(defval = true, title = "Show 1 Day Labels",        group = "High/Low")
+show4H      = input.bool(defval = true, title = "Show 4 Hour High",         group = "High/Low")
+show4hLab   = input.bool(defval = true, title = "Show 4 Hour Labels",       group = "High/Low")
+
+//  ═══  Fvg  ═══
+showFVG     = input.bool(defval = true,         title = "Show Fair Value Gaps",             group = "FVG")
+contract    = input.bool(defval = false,        title = "Contract Violated FVG",            group = "FVG")
+closeOnly   = input.bool(defval = false,        title = "Show Closest Up/Down FVG Only",    group = "FVG")
+
+//  ═══  Fibo  ═══
+showFibs    = input.bool(defval = true, title = "Show Auto Fibs",       group = "Auto Fibs")
+// extSensFibs = input.int(25, "Fibs Sensitivity", options = [10, 25, 50], group = "Auto Fibs", inline = "22")
+show236     = input.bool(defval = true,  title = "", inline = "1",      group = "Auto Fibs")
+show382     = input.bool(defval = true,  title = "", inline = "2",      group = "Auto Fibs")
+show5       = input.bool(defval = true,  title = "", inline = "3",      group = "Auto Fibs")
+show618     = input.bool(defval = true,  title = "", inline = "4",      group = "Auto Fibs")
+show786     = input.bool(defval = true,  title = "", inline = "5",      group = "Auto Fibs")
+
+fib1        = input.float(defval = .382, title = "", minval = 0, step = 0.01, inline = "1", group = "Auto Fibs")
+fib2        = input.float(defval = .5,   title = "", minval = 0, step = 0.01, inline = "2", group = "Auto Fibs")
+fib3        = input.float(defval = .6,   title = "", minval = 0, step = 0.01, inline = "3", group = "Auto Fibs")
+fib4        = input.float(defval = .7,   title = "", minval = 0, step = 0.01, inline = "4", group = "Auto Fibs")
+fib5        = input.float(defval = .786, title = "", minval = 0, step = 0.01, inline = "5", group = "Auto Fibs")
+
+fib1col     = input.color(defval = colorVisaBrandTertiary3,     title = "", inline = "1",   group = "Auto Fibs")
+fib2col     = input.color(defval = colorTvLightGreen50,         title = "", inline = "2",   group = "Auto Fibs")
+fib3col     = input.color(defval = colorArbeSecondary,          title = "", inline = "3",   group = "Auto Fibs")
+fib4col     = input.color(defval = colorBrightYellow20,         title = "", inline = "4",   group = "Auto Fibs")
+fib5col     = input.color(defval = colorVisaBrandTertiary3,     title = "", inline = "5",   group = "Auto Fibs")
+
+//  ═══════════════
+//  ═══  Suite  ═══
+//  ═══  Functions  ═══
+
+//  ═══  Maths  ═══
+
+var bigData = map.new<string, float>()
+
+if bigData.size() == 0
+
+    bigData.put("moving", 0)
+    bigData.put("upaxis", 0.0) 
+    bigData.put("upaxis2", 0)
+    bigData.put("dnaxis", 0.0) 
+    bigData.put("dnaxis2", 0)
+    bigData.put("upside", 1)
+    bigData.put("downside", 1)
+
+[pdHigh, pdLow, dayHigh, dayLow, pdBar, dayBar] = request.security(syminfo.tickerid, "1D", [high[1], low[1], high, low, time[1], time])
+
+var highArr = array.new_float(), var lowArr  = array.new_float()
+var timeArr = array.new_int  (), var volArr  = array.new_float()
+var closeArr = array.new_float(), var openArr = array.new_float()
+
+highArr.unshift(high), lowArr.unshift(low)
+timeArr.unshift(time), volArr.unshift(volume)
+closeArr.unshift(close), openArr.unshift(open)
+
+type rollingTF 
+
+    float highTF                  = 0
+    float lowTF                   = 1e8
+    int   highTFt                 = 0
+    int   lowTFt                  = 0
+    float volTF                   = 0
+    map   <string, line >         rTFdraw
+    map   <string, label>         rTFlabel
+
+method tfDraw(int tfDiff, bool showRollingLab, string tf, bool showLevels) => 
+
+
+    TFhrdata = rollingTF.new(), var volRolling = array.new<float>()
+
+    if highArr.size() > tfDiff
+
+        for i = 0 to tfDiff
+
+            if showLevels and barstate.islast
+
+                getHigh = highArr.get(i), getLow = lowArr.get(i), 
+                             getTime = timeArr.get(i)
+
+                TFhrdata.highTF := math.max(TFhrdata.highTF, getHigh)
+                TFhrdata.lowTF  := math.min(TFhrdata.lowTF , getLow )
+
+                if TFhrdata.highTF == getHigh 
+
+                    TFhrdata.highTFt := timeArr.get(i)
+
+                if TFhrdata.lowTF == getLow
+
+                    TFhrdata.lowTFt  := timeArr.get(i)
+
+            TFhrdata.volTF += volArr.get(i)
+
+        volRolling.push(TFhrdata.volTF)
+
+        var lineDraw = rollingTF.new(rTFdraw = map.new<string, line>(), rTFlabel = map.new<string, label>())
+
+        if showLevels
+
+            switch lineDraw.rTFdraw.size() == 0
+
+                true =>  lineDraw.rTFdraw.put("High", line.new(TFhrdata.highTFt, TFhrdata.highTF, time, TFhrdata.highTF, 
+                                                 xloc = xloc.bar_time, color = colorArbeSecondary)),                            // color.aqua
+                         lineDraw.rTFdraw.put("Low" , line.new(TFhrdata.lowTFt , TFhrdata.lowTF , time, TFhrdata.lowTF , 
+                                                 xloc = xloc.bar_time, color = colorArbeSecondary))                             // color.aqua 
+
+                =>       lineDraw.rTFdraw.get("High").set_xy1(TFhrdata.highTFt, TFhrdata.highTF),
+                         lineDraw.rTFdraw.get("High").set_xy2(time, TFhrdata.highTF),
+
+                         lineDraw.rTFdraw.get("Low").set_xy1(TFhrdata.lowTFt, TFhrdata.lowTF),
+                         lineDraw.rTFdraw.get("Low").set_xy2(time, TFhrdata.lowTF)
+
+            if showRollingLab 
+
+                switch lineDraw.rTFlabel.size() == 0
+
+                    true =>  lineDraw.rTFlabel.put("High", label.new(time, TFhrdata.highTF, xloc = xloc.bar_time, 
+                                                         textcolor = colorArbeSecondary,                                       // color.aqua
+                                                         text      = tf + "H", 
+                                                         size      = size.tiny, 
+                                                         style     = label.style_label_left, 
+                                                         color     = #00000000
+                                                         )),
+                             lineDraw.rTFlabel.put("Low" , label.new(time, TFhrdata.lowTF , xloc = xloc.bar_time, 
+                                                         textcolor = colorArbeSecondary,                                        // color.aqua 
+                                                         text      = tf + "L", 
+                                                         size      = size.tiny, 
+                                                         style     = label.style_label_left, 
+                                                         color     = #00000000
+                                                         ))  
+
+                    =>       lineDraw.rTFlabel.get("High") .set_xy(time, TFhrdata.highTF),
+                             lineDraw.rTFlabel.get("Low")  .set_xy(time, TFhrdata.lowTF)
+
+
+    [TFhrdata.volTF, volRolling]
+
+
+
+tfDrawLower(bool showRollingLab, simple string tf, bool showLevels) => 
+
+    simple int end = switch tf 
+
+        "240" => 240
+        "1D"  => 1440
+
+
+    [o, h, l, c, v, t] = request.security_lower_tf(syminfo.tickerid, "1", [open, high, low, close, volume, time])
+
+
+    var oArr = array.new_float()
+    var hArr = array.new_float()
+    var lArr = array.new_float()
+    var cArr = array.new_float()
+    var vArr = array.new_float()
+    var tArr = array.new_int()
+
+    TFhrdata = rollingTF.new(), var volRolling = array.new<float>()
+
+    if h.size() > 0
+
+        for i = 0 to h.size() - 1
+
+            oArr.push(o.get(i))
+            hArr.push(h.get(i))
+            lArr.push(l.get(i))
+            cArr.push(c.get(i))
+            vArr.push(v.get(i))
+            tArr.push(t.get(i))
+
+            if hArr.size() > end 
+
+                oArr.shift()
+                hArr.shift()
+                lArr.shift()
+                cArr.shift()
+                vArr.shift()
+                tArr.shift()
+
+
+        for i = 0 to hArr.size() - 1
+        
+            if showLevels
+
+            
+                getHigh = hArr.get(i), getLow = lArr.get(i), 
+                             getTime = tArr.get(i)
+
+                TFhrdata.highTF := math.max(TFhrdata.highTF, getHigh)
+                TFhrdata.lowTF  := math.min(TFhrdata.lowTF , getLow)
+
+                if TFhrdata.highTF == getHigh 
+                
+                    TFhrdata.highTFt := tArr.get(i)
+
+                if TFhrdata.lowTF == getLow
+                
+                    TFhrdata.lowTFt  := tArr.get(i)
+
+            TFhrdata.volTF  += vArr.get(i)
+
+        volRolling.push(TFhrdata.volTF)
+
+        var lineDraw = rollingTF.new(rTFdraw = map.new<string, line>(), rTFlabel = map.new<string, label>())
+
+        if showLevels
+        
+            switch lineDraw.rTFdraw.size() == 0
+            
+                true =>  lineDraw.rTFdraw.put("High", line.new(TFhrdata.highTFt, TFhrdata.highTF, time, TFhrdata.highTF, 
+                                                 xloc = xloc.bar_time, color = colorArbeSecondary)),                        // color.aqua
+                         lineDraw.rTFdraw.put("Low" , line.new(TFhrdata.lowTFt , TFhrdata.lowTF , time, TFhrdata.lowTF , 
+                                                 xloc = xloc.bar_time, color = colorArbeSecondary))                         // color.aqua
+
+                =>       lineDraw.rTFdraw.get("High").set_xy1(TFhrdata.highTFt, TFhrdata.highTF),
+                         lineDraw.rTFdraw.get("High").set_xy2(time, TFhrdata.highTF),
+
+                         lineDraw.rTFdraw.get("Low").set_xy1(TFhrdata.lowTFt, TFhrdata.lowTF),
+                         lineDraw.rTFdraw.get("Low").set_xy2(time, TFhrdata.lowTF)
+
+            if showRollingLab 
+            
+                switch lineDraw.rTFlabel.size() == 0
+                
+                    true =>  lineDraw.rTFlabel.put("High", label.new(time, TFhrdata.highTF, xloc = xloc.bar_time, 
+                                                         textcolor = colorArbeSecondary,                                    // color.aqua
+                                                         text      = tf + "H", 
+                                                         size      = size.tiny, 
+                                                         style     = label.style_label_left, 
+                                                         color     = #00000000
+                                                         )),
+                             lineDraw.rTFlabel.put("Low" , label.new(time, TFhrdata.lowTF , xloc = xloc.bar_time, 
+                                                         textcolor = colorArbeSecondary,                                    // color.aqua
+                                                         text      = tf + "L", 
+                                                         size      = size.tiny, 
+                                                         style     = label.style_label_left, 
+                                                         color     = #00000000
+                                                         ))  
+
+                    =>       lineDraw.rTFlabel.get("High") .set_xy(time, TFhrdata.highTF),
+                             lineDraw.rTFlabel.get("Low")  .set_xy(time, TFhrdata.lowTF)
+
+
+    [TFhrdata.volTF, volRolling]
+
+
+var r4hrbars = math.floor(timeframe.in_seconds("240") / timeframe.in_seconds(timeframe.period))
+var rDbars   = math.floor(timeframe.in_seconds("1D") / timeframe.in_seconds(timeframe.period))
+
+[vol4hr, vol4hrArr] = switch 
+
+    timeframe.in_seconds() <= 60 => r4hrbars.tfDraw(show4hLab, "240", show4H)
+    =>                              tfDrawLower(show4hLab, "240", show4H)
+
+    
+[vol1D, vol1DArr] = switch
+
+    timeframe.in_seconds() <= 60 => rDbars.tfDraw(show1DLab, "1D", show1D) 
+    =>                              tfDrawLower(show1DLab, "1D", show1D)
+
+calculatePivots(length)=>
+
+    var int intraCalc = 0
+
+
+    if bar_index > length + 1
+
+        up  = highArr.slice(0, length).max()
+        dn  = lowArr .slice(0, length).min() 
+        
+        cHi = highArr.get(length)
+        cLo = lowArr .get(length)
+
+        intraCalc := switch 
+
+            cHi > up => 0 
+            cLo < dn => 1 
+            =>          intraCalc[1]
+
+        topSwing = switch 
+
+            intraCalc == 0 and intraCalc[1] != 0 => cHi 
+            =>                                      0 
+
+        botSwing = switch 
+
+            intraCalc == 1 and intraCalc[1] != 1 => cLo
+            =>                                      0 
+
+
+        [topSwing, botSwing]
+
+
+[bigUpper    , bigLower   ]     = calculatePivots(extSens)
+[smallUpper  , smallLower ]     = calculatePivots(intSens)
+
+
+var label [] upLabel = array.new_label(1)
+var label [] dnLabel = array.new_label(1)
+
+
+var box [] highBlock = array.new_box()
+var box [] lowBlock  = array.new_box()
+
+
+
+drawChar(x, y, str, col, down) =>
+
+    style = switch down 
+
+        true => label.style_label_down
+        =>      label.style_label_up
+
+    line.new (int(x), y, bar_index, y, color = col, style = line.style_dashed)
+    label.new(math.round(math.avg(x, bar_index)), y, str, color = #00000000, textcolor = col, style = style, size = size.small)
+
+
+drawStructureExt() => 
+
+    var int counter = 0
+
+    if bigUpper != 0
+        bigData.put("upside", 1)
+        x1 = bar_index - extSens
+
+        txt = switch bigUpper > bigData.get("upaxis")
+            
+            true => 'HH'
+            =>      'LH'
+
+        if showHHLH
+
+            upLabel.set(0, label.new(x1, bigUpper, txt,
+
+                          color     = color.new(color.white, 100), 
+                          textcolor = bearC, 
+                          style     = label.style_label_down, 
+                          size      = size.small
+                          ))
+        if showOB
+            highBlock.push(box.new(x1, bigUpper, last_bar_index + 5, bigUpper * .998, 
+                         border_color = color.new(colorTvNitRed40, 70),                 // (color.red, 75)
+                         bgcolor      = color.new(colorTvNitRed40, 90)                  // (color.red, 95)
+                         ))
+
+        bigData.put("upaxis" , bigUpper)
+        bigData.put("upaxis2", x1)
+
+        counter := 1
+
+    if bigLower != 0
+        bigData.put("downside", 1)
+
+        x1 = bar_index - extSens
+
+        txt = switch bigLower < bigData.get("dnaxis") 
+
+            true => "LL" 
+            =>      "HL"
+
+        if showHLLL == true 
+            dnLabel.set(0, label.new(x1, bigLower, txt, color = #ffffff00, 
+                         textcolor = bullC, 
+                         style     = label.style_label_up, 
+                         size      = size.small
+                         ))
+        if showOB
+            lowBlock.push(box.new(x1, bigLower, last_bar_index + 5, bigLower * 1.002,
+                          border_color = color.new(colorArbePrimary, 70),               // (color.blue, 75)
+                          bgcolor      = color.new(colorArbePrimary, 90)                // (color.blue, 95)
+                          ))    
+        
+        bigData.put("dnaxis" , bigLower)
+        bigData.put("dnaxis2", x1)
+
+        counter := -1
+
+
+    if showExt
+        if ta.crossover(close, bigData.get("upaxis"))
+            if bigData.get("upside") != 0
+
+                str = switch bigData.get("moving") < 0
+
+                    true => extStru != "BoS"   ? 'CHoCH' : "" 
+                    =>      extStru != 'CHoCH' ? 'BoS'   : ""
+
+                if extStru == "All" or str.contains(extStru, str)
+                    drawChar(bigData.get("upaxis2"), bigData.get("upaxis"), str, bullC, true)
+
+                bigData.put("upside", 0)
+                bigData.put("moving", 1)
+
+        if ta.crossunder(close, bigData.get("dnaxis"))
+
+            if bigData.get("downside") != 0
+
+                str = switch bigData.get("moving") > 0
+
+                    true => extStru != "BoS"   ? 'CHoCH' : "" 
+                    =>      extStru != 'CHoCH' ? 'BoS'   : ""
+
+                if extStru == "All" or str.contains(extStru, str)
+                    drawChar(bigData.get("dnaxis2"), bigData.get("dnaxis"), str, bearC, false)
+
+                bigData.put("downside", 0)
+                bigData.put("moving", -1)
+
+    counter 
+
+counter = drawStructureExt()
+
+method updateBox(array<box> id) =>
+
+    if id.size() > 0 
+        for i = 0 to id.size() - 1
+            id.get(i).set_right(last_bar_index + 5)
+
+method cleanseLevel(array<box> id, bool isHighBlock) => 
+
+    if id.size() > 0   
+
+        for i = id.size() - 1 to 0 
+
+            condition = switch isHighBlock
+            
+                true => close >= id.get(i).get_top()
+                =>      close <= id.get(i).get_bottom()
+
+            if condition
+                id.remove(i).delete()
+
+        if id.size() > showLast and showLast != 0
+            for i = id.size() - showLast to 0 
+                id.remove(i).delete()
+
+highBlock.cleanseLevel(true)
+lowBlock .cleanseLevel(false)
+
+if barstate.islast
+
+    highBlock.updateBox()
+    lowBlock .updateBox()
+
+
+
+method updateMain(line id) => 
+
+    hi = 0.0 
+    lo = 1e8
+
+    if showFibs
+
+        [bigUpperFibs, bigLowerFibs]    = calculatePivots(25)
+
+        var int counterFibs = 0
+
+        if bigUpperFibs != 0 
+            counterFibs := 1
+
+        if bigLowerFibs != 0 
+            counterFibs := -1
+
+        if counterFibs == 1 
+            hi := 0.0
+            
+            id.set_xy1(int(bigData.get("upaxis2")), bigData.get("upaxis"))
+
+            for i = 0 to bar_index - int(bigData.get("dnaxis2"))
+
+                getLow = lowArr.get(i)
+
+                lo := math.min(getLow, lo)
+
+                if lo == getLow
+                    id.set_xy2(bar_index - i, lo)
+
+        else if counterFibs == -1
+
+            lo := 1e8
+            id.set_xy1(int(bigData.get("dnaxis2")), bigData.get("dnaxis"))
+
+            for i = 0 to bar_index - bigData.get("upaxis2")
+
+                getHigh = highArr.get(i)
+                hi     := math.max(highArr.get(i), hi)
+
+                if hi == getHigh 
+
+                    id.set_xy2(bar_index - i, hi)
+
+        if id.get_x2() < id.get_x1()
+
+            x2 = id.get_x2(), x1 = id.get_x1()
+            y2 = id.get_y2(), y1 = id.get_y1(),
+
+                     id.set_xy2(x1, y1),
+                     id.set_xy1(x2, y2)
+
+
+        switch id.get_y2() < id.get_y1()
+
+            true => id.set_color(colorVisaBrandTertiary3)           // colorUltrRose20           // color #F24968
+            =>      id.set_color(colorUltrMenta30)                  // color #14D990
+
+    0
+
+
+var main = line.new(dnLabel.first().get_x(), dnLabel.first().get_y(), upLabel.first().get_x(), upLabel.first().get_y(),
+                                                 style = line.style_dashed, 
+                                                 width = 2
+                                                 )
+
+
+main.updateMain()
+
+quickLine(getX2, y, color) => 
+
+    line.new(getX2, y, bar_index + 5, y, color = color.new(color, 75))
+
+quickLabel(y, txt, color) => 
+
+    label.new(bar_index + 5, y, text = str.tostring(txt), color = #00000000, style = label.style_label_left, textcolor = color)
+
+
+drawFibs() => 
+
+    if barstate.islast
+
+        var fibLine = array.new<line>(5)
+        var fibLab = array.new<label>(5) 
+        
+        if fibLine.size() > 0 
+            for i = 0 to fibLine.size() - 1
+            
+                fibLine .get(i).delete()
+                fibLab  .get(i).delete()
+
+
+        if showFibs
+
+            getY2 = main.get_y2(), sub   = main.get_y1() - getY2, 
+            getX1 = main.get_x1(), getX2 = main.get_x2()
+
+            for i = 0 to fibLine.size() - 1
+
+                mod = i % fibLine.size() - 1   
+
+                [y, col, txt] = switch mod
+
+                    0 => [sub * fib1 + getY2, show236 ? fib1col : color.new(chart.bg_color, 100), fib1]
+                    1 => [sub * fib2 + getY2, show382 ? fib2col : color.new(chart.bg_color, 100), fib2]
+                    2 => [sub * fib3 + getY2, show5   ? fib3col : color.new(chart.bg_color, 100), fib3]
+                    3 => [sub * fib4 + getY2, show618 ? fib4col : color.new(chart.bg_color, 100), fib4]
+                    =>   [sub * fib5 + getY2, show786 ? fib5col : color.new(chart.bg_color, 100), fib5] 
+
+                fibLine.set(i, quickLine  (getX2, y, col))
+                fibLab .set(i, quickLabel (y, txt, col))
+
+
+drawFibs()
+
+//  ═══════════════
+//  ═══  Suite  ═══
+//  ═══  Display  ═══
+
+//  ═══  OB  ═══
+drawStructureInternals() => 
+
+    if showInt
+        
+        var keyValues = map.new<string, float>()
+
+        if keyValues.size() == 0 
+            keyValues.put("movingSmall", 0)
+
+        if smallUpper != 0 
+
+            keyValues.put("upsideSmall", 1)          
+            keyValues.put("upaxisSmall", smallUpper) 
+            keyValues.put("upaxis2Small", bar_index - intSens)
+
+        if smallLower != 0 
+
+            keyValues.put("downsideSmall", 1)       
+            keyValues.put("dnaxisSmall", smallLower)
+            keyValues.put("dnaxis2Small", bar_index - intSens)
+
+
+        if ta.crossover(close, keyValues.get("upaxisSmall")) 
+            if keyValues.get("upsideSmall") != 0
+
+                str = switch 
+
+                    keyValues.get("movingSmall") < 0 =>     intStru != "BoS"   ? 'I-CHoCH' : "" 
+                    =>                                      intStru != "CHoCH" ? 'I-BoS'   : ""
+
+                if intStru == "All" or str.contains(str, intStru)
+
+                    drawChar(keyValues.get("upaxis2Small"), keyValues.get("upaxisSmall"), str, bullC, true)
+
+                keyValues.put("upsideSmall", 0)
+                keyValues.put("movingSmall", 1)
+
+        if ta.crossunder(close, keyValues.get("dnaxisSmall"))
+            if keyValues.get("downsideSmall") != 0
+
+                str = switch 
+
+                    keyValues.get("movingSmall") > 0 => intStru != "BoS"   ? 'I-CHoCH' : ""
+                    =>                                  intStru != "CHoCH" ? 'I-BoS'   : ""
+
+                if intStru == "All" or str.contains(str, intStru)
+
+                    drawChar(keyValues.get("dnaxis2Small"), keyValues.get("dnaxisSmall"), str, bearC, false)
+
+                keyValues.put("downsideSmall", 0)
+                keyValues.put("movingSmall", -1)
+
+
+drawStructureInternals()
+
+
+
+//  ═══  Area de interes  ═══
+drawAOE() => 
+
+    atr = ta.atr(14)
+
+    if showAOE 
+
+        if closeArr.size() > 50
+
+            aoi    = closeArr.slice(0, 50) 
+            aoi2   = openArr .slice(0, 50) 
+
+            maxaoiH = math.max(aoi.max(), aoi2.max())
+            minaoiL = math.min(aoi.min(), aoi2.min())
+
+            var aoeLevels = map.new<string, box>()
+
+            if aoeLevels.size() == 0 
+
+                aoeLevels.put("High", 
+                         
+                             box.new(bar_index[50], maxaoiH * 1.01, bar_index + 5, maxaoiH, 
+                             border_color = #00000000, 
+                             bgcolor      = color.new(colorTvNitRed40, 90),                     // (#F24968, 90)
+                             text         = "Area de Interes" , 
+                             text_size    = size.small, 
+                             text_color   = color.new(colorTvNitRed40, 33)                      // (#F24968, 33)
+                             ))
+
+                aoeLevels.put("Low", 
+                         
+                             box.new(bar_index[50], minaoiL, bar_index + 5, minaoiL * .99, 
+                             border_color = #00000000, 
+                             bgcolor      = color.new(colorTvLightGreen50, 90),                 // (#14D990, 90)
+                             text         = "Area de Interes" , 
+                             text_size    = size.small, 
+                             text_color   = color.new(colorTvLightGreen50, 33)                  // (#14D990, 33) 
+                             ))
+
+            getHighBox = aoeLevels.get("High")
+
+            if close <= getHighBox.get_top() * 1.01
+
+                getHighBox.set_lefttop      (bar_index[50], maxaoiH + atr)
+                getHighBox.set_rightbottom  (bar_index + 5,  maxaoiH)
+                getHighBox.set_text         ("Area de Interes")
+
+            else 
+
+                getHighBox.set_lefttop      (bar_index + 5, maxaoiH + atr)
+                getHighBox.set_rightbottom  (bar_index + 5,  maxaoiH + atr)
+                getHighBox.set_text         ("")
+
+            getLowBox = aoeLevels.get("Low")
+
+            if close >= getLowBox.get_bottom() * .99
+
+                getLowBox.set_lefttop     (bar_index[50],  minaoiL)
+                getLowBox.set_rightbottom (bar_index + 5,  minaoiL - atr)
+                getLowBox.set_text        ("Area de Interes")
+            else 
+
+                getLowBox.set_lefttop     (bar_index + 5, minaoiL)
+                getLowBox.set_rightbottom (bar_index + 5, - atr)
+                getLowBox.set_text        ("")
+
+drawAOE()
+
+
+var table tab2 = table.new(position.top_right, 13, 13,  bgcolor = #20222C, border_color = #363843, frame_color = #363843, border_width = 1, frame_width = 1)
+
+nyHour   = hour  (timenow, "America/New_York")
+nyMinute = minute(timenow, "America/New_York")
+
+fvg(direction) => 
+
+    var fvgMat = matrix.new<float>(5), var fvgDrawings = array.new<box>()
+
+    fvgMat.add_col(0, array.from(math.sign(close - open), close, high, low, time))
+
+    if fvgMat.columns() > 3 
+        fvgMat.remove_col(fvgMat.columns() - 1)
+
+    if fvgMat.row(0).sum() == direction
+
+        getDir = math.sign(direction)
+
+        [y, y1] = switch getDir
+
+            -1 => [fvgMat.get(3, 2), fvgMat.get(2, 0)]   
+            =>    [fvgMat.get(3, 0), fvgMat.get(2, 2)]
+
+        col = switch closeOnly
+            true => #00000000
+            =>      fvgcol
+
+        fvgDrawings.push(
+             box.new(int(fvgMat.get(4, 1)),y, last_bar_time, y1, xloc = xloc.bar_time, 
+                 border_color = col, bgcolor = col)
+         )
+        
+
+    fvgDrawings
+
+if showFVG
+
+    fvgDn = fvg(-3)
+    fvgUp = fvg(3)
+
+    if fvgDn.size() > 0 
+
+        for i = fvgDn.size() - 1 to 0
+
+            getfvg = fvgDn.get(i)
+
+            if high >= getfvg.get_top()
+                getfvg.delete()
+                fvgDn.remove(i)
+
+            else if contract
+                if high > getfvg.get_bottom()
+                    getfvg.set_bottom(high)
+
+
+    if fvgUp.size() > 0 
+
+        for i = fvgUp.size() - 1 to 0
+
+            getfvg = fvgUp.get(i)
+
+            if low <= getfvg.get_bottom()
+                getfvg.delete()
+                fvgUp.remove(i)
+
+            else if contract
+                if low < getfvg.get_top()
+                    getfvg.set_top(low)
+
+
+    if closeOnly and barstate.islast 
+
+        minDist = matrix.new<float>(1, 2, 20e20)
+
+        if fvgDn.size() > 0 
+            for i = fvgDn.size() - 1 to 0
+
+                getBottom = fvgDn.get(i).get_bottom()
+
+                minDist.set(0, 1, math.min(minDist.get(0, 1), math.abs(close - getBottom)))
+
+                if math.abs(close - getBottom) == minDist.get(0, 1)
+                    minDist.set(0, 0, i)
+
+                fvgDn.get(i).set_right(fvgDn.get(i).get_left())
+
+            fvgDn.get(int(minDist.get(0, 0))).set_bgcolor(fvgcol)
+            fvgDn.get(int(minDist.get(0, 0))).set_border_color(fvgcol)
+            fvgDn.get(int(minDist.get(0, 0))).set_right(last_bar_time)
+
+        minDist.set(0, 0, 0)
+        minDist.set(0, 1, 20e20)
+
+
+        if fvgUp.size() > 0 
+            for i = fvgUp.size() - 1 to 0
+
+                getTop = fvgUp.get(i).get_top()
+
+                minDist.set(0, 1, math.min(minDist.get(0, 1), math.abs(close - getTop)))
+
+                if math.abs(close - getTop) == minDist.get(0, 1)
+                    minDist.set(0, 0, i)
+
+                fvgUp.get(i).set_right(fvgUp.get(i).get_left())
+
+
+            fvgUp.get(int(minDist.get(0, 0))).set_bgcolor(fvgcol)
+            fvgUp.get(int(minDist.get(0, 0))).set_border_color(fvgcol)
+            fvgUp.get(int(minDist.get(0, 0))).set_right(last_bar_time)
+
+
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////
+
+
+var grpColor	= " ═══ Colores ═══ "
+colorLong		= input.color(color.new(colorArbePrimary, 65),		title = "Compra",	group = grpColor, inline = "aa")
+colorShort		= input.color(color.new(colorBrightYellow20, 65),	title = "Venta",	group = grpColor, inline = "aa")
+
+//  ═════════════════
+//  ═══  Fvg bar  ═══
+//  ═══  Variables  ═══
+
+var grpVar		= " ═══ Fvg ═══ "
+sigLength		= input.int(14, 'ADX Suavizado',	group = grpVar)
+diLength		= input.int(14, 'Longitud DI',		group = grpVar)
+levelRange		= input.int(20, 'Rango',			group = grpVar)
+levelTrend		= input.int(35, 'Tendencia',		group = grpVar)
+
+lb				= input.int(50,		title = "FVG Lookback",			group = grpVar)
+atrMulti		= input.float(0.25,	title = "Multiplicador ATR",	group = grpVar, step  = 0.25)
+
+//  ═════════════════
+//  ═══  Fvg bar  ═══
+//  ═══  Functions  ═══
+
+//  ═══  Atr  ═══
+atr			= nz(ta.atr(200)*atrMulti, ta.cum(high - low) / (bar_index+1))
+
+//  ═══  Fvg Detect  ═══
+fvgUp		= low	> high[2]	and close[1] > high[2]	and (low-high[2]) > atr
+fvgDown		= high	< low[2]	and close[1] < low[2]	and (low[2]-high) > atr
+
+//  ═══  Highest & Lowest  ═══
+hst			= ta.highest(high,5)
+lst			= ta.lowest(low,5)
+
+//  ═══  Maths  ═══
+var upAry	= array.new_box(na)
+var downAry	= array.new_box(na)
+
+//  ═════════════════
+//  ═══  Fvg bar  ═══
+//  ═══  Display  ═══
+
+//  ═══  If  ═══
+if fvgUp
+    upAry.push(
+      box.new(bar_index[2], low, bar_index, high[2]
+      , border_color	= colorLong
+      , bgcolor			= colorLong))
+
+if fvgDown
+    downAry.push(
+      box.new(bar_index[2],  low[2], bar_index, high
+      , border_color	= colorShort
+      , bgcolor			= colorShort))

@@ -1,0 +1,733 @@
+// ╔═══════════════════════════════════════╗
+// ║  @Ultr                                ║
+// ║  Color Base                           ║
+// ╚═══════════════════════════════════════╝
+
+
+//  ══  monokai  ══
+type monokai
+    string purple           = #AE81FF
+    string blue             = #66D9EF
+    string green            = #A6E22E
+    string yellow           = #E6DB74
+    string orange           = #FD971F
+    string black            = #272822
+    string red              = #F92472
+    string pink             = #FB71A3
+    string white            = #ffffff
+    string gray             = #74756F
+    string up               = #A6E22E
+    string down             = #F92472
+    string neutral          = #66D9EF
+    string buy              = #66D9EF
+    string sell             = #F92472
+    string tp               = #FD971F
+    string sl               = #AE81FF
+
+
+//  ══  monokaipro  ══
+type monokaipro
+    purple            = #AB9DF2
+    blue              = #78DCE8
+    green             = #A9DC76
+    yellow            = #FFD866
+    orange            = #FC9867
+    red               = #FE6188
+    pink              = #FFADC2
+    black             = #2D2A2E
+    white             = #ffffff
+    gray              = #7A7A7A
+    up                = #A9DC76
+    down              = #FE6188
+    neutral           = #78DCE8
+    buy               = #78DCE8
+    sell              = #FE6188
+    tp                = #FC9867
+    sl                = #AB9DF2
+
+
+//  ══  panda  ══
+type panda
+    verylightgray     = #E6E6E6
+    lightergray       = #cdcdcd
+    lightgray         = #757575
+    gray              = #373b41
+    darkgray          = #2e2f30
+    verydarkgray      = #292A2B
+    black             = #292A2B
+    white             = #f3f3f3
+    lightmidnight     = #676B79
+    blue              = #45A9F9
+    bluelight         = #6FC1FF
+    purple            = #B084EB
+    green             = #19f9d8
+    red               = #FF2C6D
+    orange            = #FFB86C
+    lightorange       = #ffcc95
+    pink              = #FF75B5
+    lightpink         = #FF9AC1
+    yellow            = #FFF145
+    up                = #19f9d8
+    down              = #FF2C6D
+    neutral           = #45A9F9
+    buy               = #45A9F9
+    sell              = #FF2C6D
+    tp                = #FFB86C
+    sl                = #B084EB
+
+
+//  ══  tradingview  ══
+type tradingview
+    blue              = #2962ff
+    red               = #f23645
+    green             = #22ab94
+    orange            = #ff9800
+    yellow            = #FFCA3B
+    purple            = #673ab7
+    lightgray         = #9598a1
+    gray              = #5d606b
+    black             = #131722
+    white             = #b2b5be
+    pink              = #F47F89
+    buy               = #1f44ff
+    sell              = #e21e34
+    up                = #22ab94
+    down              = #f23645
+    neutral           = #2962ff
+    buy               = #2962ff
+    sell              = #f23645
+    tp                = #ff9800
+    sl                = #673ab7
+
+
+//  ══  tradingview_flag  ══
+type tradingview_flag
+    red               = #ff5252
+    blue              = #2979ff
+    green             = #4caf50
+    orange            = #ff9100
+    purple            = #ab47bc
+    cyan              = #00e5ff
+    pink              = #ff80ab
+    black             = #131722
+    white             = #b2b5be
+    up                = #4caf50
+    down              = #ff5252
+    neutral           = #00e5ff
+    buy               = #2979ff
+    sell              = #ff5252
+    tp                = #ff9100
+    sl                = #ab47bc
+
+
+//  ══  spacemacs_dark  ══
+type spacemacs_dark
+    aqua              = #2d9574
+    aqua-bg           = #293235
+    green             = #67b11d
+    green-bg          = #293235
+    green-bg-s        = #29422d
+    cyan              = #28def0
+    red               = #f2241f
+    red-bg            = #3c2a2c
+    red-bg-s          = #512e31
+    blue              = #4f97d7
+    blue-bg           = #293239
+    blue-bg-s         = #2d4252
+    magenta           = #a31db1
+    purple            = #a31db1
+    yellow            = #b1951d
+    yellow-bg         = #32322c
+    black             = #1e2023
+    gray              = #808777
+    pink              = #EF74C3
+    orange            = #F2692C
+    white             = #dcd6d5
+    up                = #67b11d
+    down              = #f2241f
+    neutral           = #b1951d
+    buy               = #4f97d7
+    sell              = #f2241f
+    tp                = #F2692C
+    sl                = #a31db1
+
+
+//  ══  spacemacs_light  ══
+type spacemacs_light
+    aqua              = #2d9574
+    aqua-bg           = #edf2e9
+    green             = #67b11d
+    green-bg          = #edf2e9
+    green-bg-s        = #dae6d0
+    cyan              = #21b8c7
+    red               = #f2241f
+    red-bg            = #faede4
+    red-bg-s          = #eed9d2
+    blue              = #3a81c3
+    blue-bg           = #edf1ed
+    blue-bg-s         = #d1dcdf
+    magenta           = #a31db1
+    purple            = #a31db1
+    yellow            = #b1951d
+    yellow-bg         = #f6f1e1
+    black             = #0e0a10
+    white             = #f9f7fb
+    gray              = #796384
+    orange            = #F95B14
+    pink              = #F46B69
+    up                = #2d9574
+    down              = #f2241f
+    neutral           = #3a81c3
+    buy               = #3a81c3
+    sell              = #f2241f
+    tp                = #F95B14
+    sl                = #a31db1
+
+
+//  ══  gruvbox  ══
+type gruvbox
+    bright_red        = #fb4934
+    bright_green      = #b8bb26
+    bright_yellow     = #fabd2f
+    bright_blue       = #83a598
+    bright_purple     = #d3869b
+    bright_aqua       = #8ec07c
+    bright_orange     = #fe8019
+    neutral_red       = #cc241d
+    neutral_green     = #98971a
+    neutral_yellow    = #d79921
+    neutral_blue      = #458588
+    neutral_purple    = #b16286
+    neutral_aqua      = #689d6a
+    neutral_orange    = #d65d0e
+    faded_red         = #9d0006
+    faded_green       = #79740e
+    faded_yellow      = #b57614
+    faded_blue        = #076678
+    faded_purple      = #8f3f71
+    faded_aqua        = #427b58
+    faded_orange      = #af3a03
+
+    red               = #cc241d
+    pink              = #D5615E
+    green             = #98971a
+    yellow            = #d79921
+    blue              = #458588
+    purple            = #b16286
+    aqua              = #689d6a
+    orange            = #d65d0e
+    black             = #1D2021
+    verydarkgray      = #282828
+    darkgray          = #32302F
+    gray              = #928374
+    white             = #f9f5d7
+    veryrightgray     = #FBF1C7
+    lightergray       = #f2e5bc
+    lightgray         = #ebdbb2
+    up                = #98971a
+    down              = #cc241d
+    neutral           = #458588
+    buy               = #458588
+    sell              = #cc241d
+    tp                = #d65d0e
+    sl                = #b16286
+
+
+//  ══  guardians  ══
+type guardians
+    green             = #41802A
+    red               = #75091e
+    purple            = #8C5094 // #a35fd1
+    orange            = #E17431
+    blue              = #385A99 // #2061c8
+    yellow            = #dac23a
+    black             = #000000
+    white             = #ffffff
+    pink              = #C7207A
+    gray              = #493D52
+    up                = #385A99
+    down              = #75091e
+    neutral           = #8C5094
+    buy               = #385A99
+    sell              = #75091e
+    tp                = #E17431
+    sl                = #8C5094
+
+
+//  ══  st3  ══
+type st3
+    black             = #090922
+    white             = #E0DFE5
+    navy              = #080247
+    blue              = #096EBF //#0f0085 
+    darkpurple        = #382895
+    purple            = #8768e0
+    cyan              = #30bae3
+    green             = #12B083
+    pink              = #C70A95
+    red               = #b1002a
+    yellow            = #B0A612
+    orange            = #E34417
+    brown             = #694e2b
+    darkbrown         = #51363b
+    gray              = #5A595E
+    up                = #12B083
+    down              = #b1002a
+    neutral           = #B0A612
+    buy               = #096EBF
+    sell              = #b1002a
+    tp                = #E34417
+    sl                = #8768e0
+
+
+//  ══  st4  ══
+type st4
+    black             = #0D0D0D
+    white             = #E0DFE5
+    blue              = #0578A6
+    purple            = #9632A6 //#BA07AB
+    green             = #0DA667
+    pink              = #F25093
+    red               = #D93611
+    yellow            = #F2A341
+    orange            = #FC5E35
+    gray              = #5C504D
+    up                = #0DA667
+    down              = #D93611
+    neutral           = #0578A6
+    buy               = #0578A6
+    sell              = #D93611
+    tp                = #FC5E35
+    sl                = #9632A6
+
+
+//  ══  gogh_tarascon  ══
+type gogh_tarascon
+    lightgreen        = #75b27f
+    green             = #4c7b3d
+    yellow            = #d39e2e
+    blue              = #27749a
+    black             = #2e3428
+    up                = #4c7b3d
+    down              = #d39e2e
+    neutral           = #27749a
+
+
+//  ══  gogh_crows  ══
+type gogh_crows
+    navy              = #072945
+    blue              = #2e68b1
+    maroon            = #5f292a
+    yellow            = #e7bb3c
+    green             = #4e683d
+    up                = #e7bb3c
+    down              = #2e68b1
+    neutral           = #4e683d
+
+
+//  ══  gogh_cafeterrace  ══
+type gogh_cafeterrace
+    blue              = #1f3fa0
+    lightblue         = #5581c6
+    orange            = #dd862e
+    yellow            = #f7da44
+    black             = #172128
+    up                = #dd862e
+    down              = #5581c6
+    neutral           = #f7da44
+
+
+//  ══  frankenthaler_flood  ══
+type frankenthaler_flood
+    maroon            = #2c0f0c
+    red               = #88231a
+    green             = #2b371f
+    yellow            = #f59009
+    blue              = #0a1467
+    up                = #0a1467
+    down              = #88231a
+    neutral           = #f59009
+
+
+//  ══  frankenthaler_thebay  ══
+type frankenthaler_thebay
+    lilac             = #949bcd
+    green             = #5f7660
+    purple            = #443d8e
+    white             = #fef8cb
+    black             = #03000e
+    up                = #5f7660
+    down              = #443d8e
+    neutral           = #949bcd
+
+
+//  ══  okeeffe_music  ══
+type okeeffe_music
+    green             = #9ec6be
+    icegreen          = #9ec6be
+    cyan              = #359bc9
+    blue              = #0e6ca5
+    pink              = #d890cc
+    peach             = #fdc7ae
+    down              = #359bc9
+    up                = #d890cc
+    neutral           = #fdc7ae
+
+
+//  ══  okeeffe_lake  ══
+type okeeffe_lake
+    skyblue           = #99b6d0
+    horizonblue       = #6d8bac
+    jayblue           = #41628a
+    smalt             = #203e62
+    indigo            = #10214c
+    up                = #203e62
+    down              = #6d8bac
+    neutral           = #41628a
+
+
+//  ══  okeeffe_reflection  ══
+type okeeffe_reflection
+    black             = #060c09
+    red               = #8f0a11
+    cyan              = #4086c5
+    lightblue         = #d0f1e4
+    blue              = #2415c1
+    up                = #4086c5
+    down              = #2415c1
+    neutral           = #8f0a11
+
+
+//  ══  okeeffe_sun  ══
+type okeeffe_sun
+    yellow            = #e5d67c
+    blue              = #94c4d1
+    lightgreen        = #8bb48f
+    green             = #1a413a
+    pink              = #fce7d9
+    up                = #e5d67c
+    down              = #94c4d1
+    neutral           = #8bb48f
+
+
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+//////////////////////////////////////////////
+
+
+//  ══  Standard  ══
+type Standard
+    color.aqua                 = #00BCD4
+    color.blue                 = #2196F3
+    color.teal                 = #00897B
+    color.green                = #4CAF50
+    color.olive                = #808000
+    color.lime                 = #00E676
+    color.yellow               = #FFEB3B
+    color.orange               = #FF9800
+    color.maroon               = #880E4F
+    color.red                  = #FF5252
+    color.fuchsia              = #E040FB
+    color.purple               = #9C27B0
+    color.navy                 = #311B92
+    color.black                = #363A45
+    color.gray                 = #787B86
+    color.silver               = #B2B5BE
+    color.white                = #FFFFFF
+
+//  ═══  Ameritrade  ═══
+type Ameritrade
+    White                      = #FFFFFF                      // AmeritradeWhite
+    GrayPlatinum               = #F7F7F7                      // AmeritradeGrayPlatinum
+    GrayNickel                 = #F1F1F1                      // AmeritradeGrayNickel                       /////
+    GrayNickelDark20           = #C0C0C0                      // AmeritradeGrayNickelDark20
+    GrayAluminum               = #E6E7E9                      // AmeritradeGrayAluminum                     /////
+    GrayAsh                    = #D8D8D8                      // AmeritradeGrayAsh                          /////
+    GrayStone                  = #999999                      // AmeritradeGrayStone
+    GrayIron                   = #666666                      // AmeritradeGrayIron
+    GrayCharcoal               = #333333                      // AmeritradeGrayCharcoal
+    Black                      = #000000                      // AmeritradeBlack
+    GreenCabbage               = #EBF6E9                      // AmeritradeGreenCabbage
+    GreenVerdeLight70          = #B4D6B2                      // AmeritradeGreenVerdeLight70
+    GreenVerdeLight50          = #83BC7F                      // AmeritradeGreenVerdeLight50
+    GreenVerdeNat              = #40a829                      // AmeritradeGreenVerdeNat
+    GreenVerdeLight20          = #399333                      // AmeritradeGreenVerdeLight20
+    GreenVerde                 = #087900                      // AmeritradeGreenVerde
+    GreenVerdeDark20           = #066000                      // AmeritradeGreenVerdeDark20
+    GreenMoss                  = #BEE7D3                      // AmeritradeGreenMoss                        /////
+    GreenMint                  = #6DC4BC                      // AmeritradeGreenMint
+    GreenPine                  = #38635A                      // AmeritradeGreenPine
+    RedRose                    = #FAD1CF                      // AmeritradeRedRose
+    RedRojaLight50             = #E08988                      // AmeritradeRedRojaLight50
+    RedRojaLight20             = #CD4241                      // AmeritradeRedRojaLight20
+    RedRoja                    = #C11312                      // AmeritradeRedRoja
+    RedRojaDark20              = #940F0E                      // AmeritradeRedRojaDark20
+    orangePeach                = #FCE7CA                      // AmeritradeorangePeach
+    orangeCarrot               = #ED8902                      // AmeritradeorangeCarrot
+    orangeYam                  = #BD5310                      // AmeritradeorangeYam
+    blueFrost                  = #E1EEF9                      // AmeritradeblueFrost
+    blueLagoon                 = #316486                      // AmeritradeblueLagoon                       /////
+    blueNavy                   = #2A5673                      // AmeritradeblueNavy
+    blueNcean                  = #64A1C6                      // AmeritradeblueNcean
+    purpleEggPlant             = #732181                      // AmeritradepurpleEggPlant
+
+//  ═══  Axi  ═══
+type Axi
+    Primary		               = #fc404d                      // AxiPrimary                                 /////
+    Secondary	               = #282424                      // AxiSecondary                               /////
+    Accent			           = #61ce70                      // AxiAccent                                  /////
+    7a46f22		               = #d11c36                      // Axi7a46f22                                 /////
+    1519066c	               = #fc404d                      // Axi1519066c                                /////
+    3d4fa1a1	               = #f0ebe3                      // Axi3d4fa1a1                                /////
+    638b46c1	               = #fcd758                      // Axi638b46c1
+    d07bac9		               = #f9b4a8                      // Axid07bac9
+    e63a114		               = #2c4d5a                      // Axie63a114                                 /////
+    8bf0845		               = #a4d866                      // Axi8bf0845
+    75c6da1		               = #282424                      // Axi75c6da1
+    378280f		               = #45c2c7                      // Axi378280f
+    4de92c5		               = #6caddf                      // Axi4de92c5                                 /////
+    413dab8		               = #00275d                      // Axi413dab8                                 /////
+    b3fab89		               = #55165c                      // Axib3fab89                                 /////
+    548138f		               = #45c2c7                      // Axi548138f                                 /////
+    5ed9920		               = #ea1616                      // Axi5ed9920                                 /////
+    70f7335		               = #dd0606                      // Axi70f7335                                 /////
+
+
+//  ═══  GrayScale  ═══
+type GrayScale
+    Focus		    		   = #2d7aed                      // GrayScaleFocus
+    White		    		   = #fff                         // GrayScaleWhite
+    Black		    		   = #000                         // GrayScaleBlack
+    PrimaryBlackberry	       = #2e234b                      // GrayScalePrimaryBlackberry                 /////
+    PrimaryBlackberry40	       = rgba(46, 35, 75, .4))        // GrayScalePrimaryBlackberry40
+    PrimaryBlackberry65	       = rgba(46, 35, 75, .65))       // GrayScalePrimaryBlackberry65
+    PrimaryCoral		       = #ffb198                      // GrayScalePrimaryCoral
+    SecondaryForestGreen       = #244024                      // GrayScaleSecondaryForestGreen              /////
+    SecondaryKeyLime	       = #b5ce6f                      // GrayScaleSecondaryKeyLime
+    SecondaryLavender	       = #c5bfe4                      // GrayScaleSecondaryLavender                 /////
+    SecondaryLavender40	       = rgba(197, 191, 228, .4))     // GrayScaleSecondaryLavender40
+    secondaryLavender60	       = rgba(197, 191, 228, .6))     // GrayScalesecondaryLavender60
+    hoverWhite		    	   = #c0bdc9                      // GrayScalehoverWhite
+    hoverBlackberry		       = #42326b                      // GrayScalehoverBlackberry
+    disabledBlackberry	       = #4d4466                      // GrayScaledisabledBlackberry
+    activeBlackberry	       = #4d4466                      // GrayScaleactiveBlackberry
+    hoverCcoral		    	   = #ffcdbd                      // GrayScalehoverCcoral
+    activeCcoral		       = #ff9e80                      // GrayScaleactiveCcoral
+    hoverGray		    	   = #827b93                      // GrayScalehoverGray
+    hoverGray2		    	   = #6d6581                      // GrayScalehoverGray2
+    grayCharcoal		       = #282525                      // GrayScalegrayCharcoal
+    grayCharcoal70		       = rgba(40, 37, 37, .7))        // GrayScalegrayCharcoal70
+    grayCharcoal80		       = rgba(40, 37, 37, .8))        // GrayScalegrayCharcoal80
+    grayLight		    	   = #f5f5f5                      // GrayScalegrayLight
+    grayMedium		    	   = #eee                         // GrayScalegrayMedium
+    gray70		    		   = #696666                      // GrayScalegray70
+    grayDark		    	   = #c1c1c1                      // GrayScalegrayDark
+    webSeasalt		    	   = #fafafc                      // GrayScalewebSeasalt                        /////
+    webDivider		    	   = #e9e7f1                      // GrayScalewebDivider                        /////
+    webBackground		       = #f3f2fa                      // GrayScalewebBackground
+    webSecondaryText	       = #77708a                      // GrayScalewebSecondaryText                  /////
+    webStroke		    	   = #d3ceeb                      // GrayScalewebStroke                         /////
+    webErrors		    	   = #e00000                      // GrayScalewebErrors                         /////
+    webService		    	   = #2d7aed                      // GrayScalewebService
+
+
+//  ═══  Interactive  ═══
+type Interactive
+    Primary3		           = hsla(355, 85%, 46%, 0.03)    // InteractivePrimary3
+    Primary5		           = hsla(355, 85%, 46%, 0.05)    // InteractivePrimary5
+    Primary10		           = hsla(355, 85%, 46%, 0.10)    // InteractivePrimary10
+    Primary20		           = hsla(355, 85%, 46%, 0.20)    // InteractivePrimary20
+    Primary30		           = hsla(355, 85%, 46%, 0.30)    // InteractivePrimary30
+    Primary40		           = hsla(355, 85%, 46%, 0.40)    // InteractivePrimary40
+    Primary50		           = hsla(355, 85%, 46%, 0.50)    // InteractivePrimary50
+    Primary60		           = hsla(355, 85%, 46%, 0.60)    // InteractivePrimary60
+    Primary70		           = hsla(355, 85%, 46%, 0.70)    // InteractivePrimary70
+    Primary80		           = hsla(355, 85%, 46%, 0.80)    // InteractivePrimary80
+    Primary90		           = hsla(355, 85%, 46%, 0.90)    // InteractivePrimary90
+    Primary			           = hsla(355, 85%, 46%, 1.0)     // InteractivePrimary
+    PrimaryDark10	           = hsla(355, 85%, 41%, 1.0)     // InteractivePrimaryDark10
+    PrimaryDark20	           = hsla(355, 85%, 36%, 1.0)     // InteractivePrimaryDark20
+    PrimaryDark30	           = hsla(355, 85%, 31%, 1.0)     // InteractivePrimaryDark30
+    PrimaryDark40	           = hsla(355, 85%, 26%, 1.0)     // InteractivePrimaryDark40
+    PrimaryDark50	           = hsla(355, 85%, 21%, 1.0)     // InteractivePrimaryDark50
+    Secondary3		           = hsla(0, 0%, 13%, 0.03)       // InteractiveSecondary3
+    Secondary5		           = hsla(0, 0%, 13%, 0.05)       // InteractiveSecondary5
+    Secondary10		           = hsla(0, 0%, 13%, 0.10)       // InteractiveSecondary10
+    Secondary20		           = hsla(0, 0%, 13%, 0.20)       // InteractiveSecondary20
+    Secondary30		           = hsla(0, 0%, 13%, 0.30)       // InteractiveSecondary30
+    Secondary40		           = hsla(0, 0%, 13%, 0.40)       // InteractiveSecondary40
+    Secondary50		           = hsla(0, 0%, 13%, 0.50)       // InteractiveSecondary50
+    Secondary60		           = hsla(0, 0%, 13%, 0.60)       // InteractiveSecondary60
+    Secondary70		           = hsla(0, 0%, 13%, 0.70)       // InteractiveSecondary70
+    Secondary80		           = hsla(0, 0%, 13%, 0.80)       // InteractiveSecondary80
+    Secondary90		           = hsla(0, 0%, 13%, 0.90)       // InteractiveSecondary90
+    Secondary		           = hsla(0, 0%, 13%, 1.0)        // InteractiveSecondary
+    SecondaryDark10	           = hsla(0, 0%, 10%, 1.0)        // InteractiveSecondaryDark10
+    SecondaryDark20	           = hsla(0, 0%, 7%, 1.0)         // InteractiveSecondaryDark20
+    SecondaryDark30	           = hsla(0, 0%, 4%, 1.0)         // InteractiveSecondaryDark30
+    SecondaryDark40	           = hsla(0, 0%, 1%, 1.0)         // InteractiveSecondaryDark40
+    SecondaryDark50	           = hsla(0, 0%, 0%, 1.0)         // InteractiveSecondaryDark50
+    Tertiary3		           = hsla(202, 76%, 19%, 0.03)    // InteractiveTertiary3
+    Tertiary5		           = hsla(202, 76%, 19%, 0.05)    // InteractiveTertiary5
+    Tertiary10		           = hsla(202, 76%, 19%, 0.10)    // InteractiveTertiary10
+    Tertiary20		           = hsla(202, 76%, 19%, 0.20)    // InteractiveTertiary20
+    Tertiary30		           = hsla(202, 76%, 19%, 0.30)    // InteractiveTertiary30
+    Tertiary40		           = hsla(202, 76%, 19%, 0.40)    // InteractiveTertiary40
+    Tertiary50		           = hsla(202, 76%, 19%, 0.50)    // InteractiveTertiary50
+    Tertiary60		           = hsla(202, 76%, 19%, 0.60)    // InteractiveTertiary60
+    Tertiary70		           = hsla(202, 76%, 19%, 0.70)    // InteractiveTertiary70
+    Tertiary80		           = hsla(202, 76%, 19%, 0.80)    // InteractiveTertiary80
+    Tertiary90		           = hsla(202, 76%, 19%, 0.90)    // InteractiveTertiary90
+    Tertiary		           = hsla(202, 76%, 19%, 1.0)     // InteractiveTertiary
+    TertiaryDark10 	           = hsla(202, 76%, 14%, 1.0)     // InteractiveTertiaryDark10
+    TertiaryDark20 	           = hsla(202, 76%, 9%, 1.0)      // InteractiveTertiaryDark20
+    TertiaryDark30 	           = hsla(202, 76%, 4%, 1.0)      // InteractiveTertiaryDark30
+    TertiaryDark40 	           = hsla(202, 76%, 0%, 1.0)      // InteractiveTertiaryDark40
+
+
+//  ═══  Visa  ═══
+Visa
+    BrandPrimary               = #1434CB                      // VisaBrandPrimary                                 /////
+    BrandPrimaryLight          = #3B57DE                      // VisaBrandPrimaryLight                            /////
+    BrandPrimaryDark           = #021E4C                      // VisaBrandPrimaryDark
+    BrandSecondary             = #FCC015                      // VisaBrandSecondary
+    BrandSecondaryLight        = #FFD700                      // VisaBrandSecondaryLight
+    BrandSecondaryDark         = #F7B600                      // VisaBrandSecondaryDark
+    BrandTertiary7             = #2C2C2C                      // VisaBrandTertiary7
+    BrandTertiary6             = #5C5C5C                      // VisaBrandTertiary6
+    BrandTertiary5             = #979797                      // VisaBrandTertiary5
+    BrandTertiary4             = #B9B9B9                      // VisaBrandTertiary4
+    BrandTertiary3             = #DEDEDE                      // VisaBrandTertiary3                               /////
+    BrandTertiary2             = #EEEEEE                      // VisaBrandTertiary2
+    BrandTertiary1             = #F7F7F7                      // VisaBrandTertiary1
+
+
+//  ═══  Latam  ═══
+type Latam
+    RedBackground              = rgb(232, 17, 75)             //  Latam Red Background
+
+
+//  ═══  Arbe Robotics  ═══
+type Arbe Robotics
+    ArbePrimary                = #0035FF                       // ArbePrimary                                     /////
+    ArbePrimaryLight           = #0640FF                       // ArbePrimaryLight                                /////
+    ArbeSecondary              = #04ebff                       // ArbeSecondary                                   /////
+
+
+//  ═══  AutoX  ═══
+type AutoX
+    AutoXPrimary               = #2253F0                       // AutoXPrimary                                    /////
+    AutoXPrimaryLight          = #0050F9                       // AutoXPrimaryLight                               /////
+    AutoXSecondary             = #75ebc0                       // AutoXSecondary                                  /////
+
+
+//  ═══  EEG  ═══
+type EEG
+    EegSkyBlue30               = #01EBF9                       // EEGSkyBlue30                                    /////
+    EegSkyBlue40               = #00E7FD                       // EEGSkyBlue40                                    /////
+    EegFucsia40                = #FF00B1                       // EEGFucsia40                                     /////
+    EegFucsia50                = #FE0CB6                       // EEGFucsia50                                     /////
+
+
+//  ═══  Bright Line  ═══
+type BrightLine
+    BrightYellow10             = #FBFD73                       // BrightLineBackground Yellow Light               /////
+    BrightYellow20             = #FFFD52                       // BrightLineBackground Yellow Light               /////
+    BrightYellow30             = #FDF43C                       // BrightLineBackground Yellow High                /////
+    BrightYellow40             = #FEF301                       // BrightLineBackground Yellow Nit                 /////
+    BrightYellow50             = #FFDB00                       // BrightLineBackground Yellow Base                /////
+
+
+//  ═══  TradingView  ═══
+type TradingV
+    TvLightMenta50             = #00ffd5                       // TradingViewMenta                                /////
+    TvLightGreen50             = #33ffac                       // TradingViewGreenNit                             /////
+    TvBlue50                   = #0034c5                       // TradingViewBlue                                 /////
+    TvLightYellow50            = #eedd45                       // TradingViewYellow                               /////
+    TvNitRed40                 = #e91e63                       // TradingViewRedLight                             /////
+    TvLightBlueSky50           = #12cef8                       // TradingViewBlueSky                              /////
+
+
+//  ═══  TFlab  ═══
+type TFlab
+    TFlabAsia                  = #8bbcfc                       // Lite TFlabAsia                                  /////
+    TFlabSydney                = #F0B884                       // Lite TFlabSydney                                /////
+    TFlabTokyo                 = #0CC1C0                       // Lite TFlabTokyo
+    TFlabShanghai              = #ea1616                       // Lite TFlabShanghai
+    TFlabEuro                  = #BBE8B5                       // Lite TFlabEuro
+    TFlabLondon                = #ACBBE8                       // Lite TFlabLondon
+    TFlabNewyork               = #C5ACE8                       // Lite TFlabNewyork
+    TFlabNYSE                  = #87c2d4                       // Lite TFlabNYSE
+
+
+//  ═══  Ultr  ═══
+type Ultr
+    UltrBlueSky10              = #59F2E9                       // UltrBlueSky10                                   /////
+    UltrBlueSky20              = #39F0EA                       // UltrBlueSky20                                   /////
+    UltrMenta10                = #E0F9EF                       // UltrMenta10                                     /////
+    UtlrMenta20                = #80F3EC                       // UtlrMenta20                                     /////
+    UltrMenta30                = #7FFFD4                       // UltrMenta30                                     /////
+    UltrMenta40                = #73FFCA                       // UltrMenta40                                     /////
+    UltrRose20                 = #ffa3e3                       // UltrRose                                        /////
+    UltrFucsia30               = #ff6fd3                       // UltrFucsia                                      /////
+    UltrLyla                   = #7E57C2                       // UltrLyla                                        /////
+    UltrLightGray              = #787B86	    		       // UltrLightGray                                   /////
+    UltrRedNit                 = #de0011                       // UltrRedNit                                      /////
+
+
+///////////////////////////////////////////////////////////////////////////////////// 
+///////////////////////////////////////////////////////////////////////////////////// 
+///////////////////////////////////////////////////////////////////////////////////// 
+
+// //  ══  Basic  ══
+// color colorAxi413dab8							= #00275d					// Axi413dab8
+// color colorVisaBrandPrimary						= #1434CB					// VisaBrandPrimary
+// color colorTvBlue50								= #0034c5					// TradingViewBlue
+// color colorArbePrimary							= #0035FF					// ArbePrimary
+// color colorArbePrimaryLight						= #0640FF					// ArbePrimaryLight
+// color colorArbeSecondary				    		= #04ebff					// ArbeSecondary
+// color colorUltrBlueSky10					    	= #59F2E9					// UltrBlueSky10
+// color colorUltrBlueSky20						    = #39F0EA					// UltrBlueSky20
+// color colorAutoXSecondary						= #75ebc0					// AutoXSecondary
+// color colorUltrMenta10							= #E0F9EF					// UltrMenta10
+// color colorUtlrMenta20							= #80F3EC					// UltrMenta20
+// color colorUltrMenta30							= #7FFFD4					// UltrMenta30
+// color colorUltrMenta40							= #73FFCA					// UltrMenta40
+// color colorTvLightMenta50						= #00ffd5					// TradingViewMenta
+// color colorTvLightGreen50						= #33ffac					// TradingViewGreenNit
+// color colorAxi4de92c5							= #6caddf					// Axi4de92c5
+// color colorTvLightBlueSky50						= #12cef8					// TradingViewBlueSky
+// color colorAxi548138f							= #45c2c7					// Axi548138f
+// color colorEegSkyBlue30							= #01EBF9					// EEGSkyBlue30
+// color colorEegSkyBlue40							= #00E7FD					// EEGSkyBlue40
+// color colorUltrRose20							= #ffa3e3					// UltrRose
+// color colorUltrFucsia30							= #ff6fd3					// UltrFucsia
+// color colorEegFucsia40							= #FF00B1					// EEGFucsia40
+// color colorEegFucsia50							= #FE0CB6					// EEGFucsia50
+// color colorTvNitRed40							= #e91e63					// TradingViewRedLight
+// color colorUltrRedNit							= #de0011					// UltrRedNit
+// color colorAxi5ed9920							= #ea1616					// Axi5ed9920
+// color colorAxi70f7335							= #dd0606					// Axi70f7335
+// color colorAxiPrimary							= #fc404d					// AxiPrimary
+// color colorAxi7a46f22							= #d11c36					// Axi7a46f22
+// color colorBrightYellow10						= #FBFD73					// BrightLineBackground Yellow Light
+// color colorBrightYellow20						= #FFFD52					// BrightLineBackground Yellow Light
+// color colorBrightYellow30						= #FDF43C					// BrightLineBackground Yellow High
+// color colorBrightYellow40						= #FEF301					// BrightLineBackground Yellow Nit
+// color colorBrightYellow50						= #FFDB00					// BrightLineBackground Yellow Base
+// color colorTvLightYellow50						= #eedd45					// TradingViewYellow
+// color colorAmeritradeGrayNickel					= #F1F1F1					// AmeritradeGrayNickel
+// color colorAmeritradeGrayAluminum				= #E6E7E9					// AmeritradeGrayAluminum
+// color colorAxi3d4fa1a1							= #f0ebe3					// Axi3d4fa1a1
+// color colorGrayScalewebSeasalt					= #fafafc					// GrayScalewebSeasalt
+// color colorGrayScalewebDivider					= #e9e7f1					// GrayScalewebDivider
+// color colorGrayScalewebBackground				= #f3f2fa					// GrayScalewebBackground
+// color colorVisaBrandTertiary3					= #DEDEDE					// VisaBrandTertiary3
+// color colorGrayScaleSecondaryLavender			= #c5bfe4					// GrayScaleSecondaryLavender
+// color colorUltrLyla								= #7E57C2					// UltrLyla
+// color colorAxib3fab89							= #55165c					// Axib3fab89
+// color colorUltrLightGray					    	= #787B86					// UltrLightGray
+// color colorAxie63a114							= #2c4d5a					// Axie63a114
+// color colorGrayScaleSecondaryForestGreen	    	= #244024					// GrayScaleSecondaryForestGreen
+// color colorGrayScalePrimaryBlackberry			= #2e234b					// GrayScalePrimaryBlackberry
+// color colorAxiSecondary							= #282424					// AxiSecondary
