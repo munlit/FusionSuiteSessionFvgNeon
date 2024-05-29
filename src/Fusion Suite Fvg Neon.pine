@@ -1515,18 +1515,6 @@ int transparencia   = input(100)
 
 string optionMa	= input.string("SMA", "Tipo de MM", options = ["EMA", "SMA", "RMA", "WMA", "VWMA"])
 
-//  ══════════════
-//  ═══  Neon  ═══
-//  ═══  Types  ═══
-
-type OHL
-    float O = open
-    float H = high
-    float L = low
-    float C = close
-    float V = volume
-
-//  ═══════════════
 //  ═══  Cross  ═══
 //  ═══  Functions  ═══
 
@@ -1541,7 +1529,6 @@ ma(source, length, type) =>
 //  ═══════════════
 //  ═══  Cross  ═══
 //  ═══  Instances  ═══
-ohl = OHL.new()
 
 ma8   = ma(ohl.C, length8,    optionMa)
 ma14  = ma(ohl.C, length,     optionMa)
